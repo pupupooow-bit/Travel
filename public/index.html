@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b1e33">
+<title>丹麦 &amp; 挪威 · 13 日旅行手册</title>
+<style>
+:root{
+  --bg:#eef4f8; --bg2:#e4edf4; --card:#ffffff; --card2:#f7fafc;
+  --ink:#16324a; --ink-soft:#53708a; --line:rgba(22,50,74,.12);
+  --chip:rgba(22,50,74,.06); --shadow:0 8px 26px rgba(26,62,94,.09);
+  --accent:#0e7490; --accent2:#2563eb; --warn:#b45309; --warn-bg:#fff7e6;
+  --good:#047857; --bad:#b91c1c;
+  --aurora1:rgba(45,212,191,.55); --aurora2:rgba(99,102,241,.35);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+:root{
+  --bg:#08131f; --bg2:#0a1826; --card:#0d2033; --card2:#0e2438;
+  --ink:#dcebf7; --ink-soft:#8fb0c7; --line:rgba(140,190,220,.14);
+  --chip:rgba(140,190,220,.09); --shadow:0 8px 28px rgba(0,0,0,.38);
+  --accent:#67e8f9; --accent2:#8ab4ff; --warn:#fbbf24; --warn-bg:rgba(180,120,20,.18);
+  --good:#34d399; --bad:#f87171;
+  color-scheme:dark;
+}
+html[data-theme="night"]{
+  --bg:#08131f; --bg2:#0a1826; --card:#0d2033; --card2:#0e2438;
+  --ink:#dcebf7; --ink-soft:#8fb0c7; --line:rgba(140,190,220,.14);
+  --chip:rgba(140,190,220,.09); --shadow:0 8px 28px rgba(0,0,0,.38);
+  --accent:#67e8f9; --accent2:#8ab4ff; --warn:#fbbf24; --warn-bg:rgba(180,120,20,.18);
+  --good:#34d399; --bad:#f87171;
+  color-scheme:dark;
+}
+html[data-theme="day"]{
+  --bg:#eef4f8; --bg2:#e4edf4; --card:#ffffff; --card2:#f7fafc;
+  --ink:#16324a; --ink-soft:#53708a; --line:rgba(22,50,74,.12);
+  --chip:rgba(22,50,74,.06); --shadow:0 8px 26px rgba(26,62,94,.09);
+  --accent:#0e7490; --accent2:#2563eb; --warn:#b45309; --warn-bg:#fff7e6;
+  --good:#047857; --bad:#b91c1c;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:
+    radial-gradient(1100px 500px at 85% -5%, var(--aurora1), transparent 60%),
+    radial-gradient(900px 520px at -10% 10%, var(--aurora2), transparent 55%),
+    var(--bg);
+  color:var(--ink); font:15px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  -webkit-text-size-adjust:100%;
+}
+main{max-width:960px;margin:0 auto;padding:14px 14px 56px}
+button{font:inherit}
+a{color:var(--accent2)}
+a.nav{color:inherit;text-decoration:none}
+.wrap{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:20px;margin:14px 0}
+h1,h2,h3{line-height:1.25}
+h1{margin:0;font-size:clamp(23px,5vw,34px);letter-spacing:.5px}
+h2{font-size:19px;margin:0 0 12px;display:flex;align-items:center;gap:9px}
+h2::before{content:"";width:9px;height:22px;border-radius:5px;background:linear-gradient(180deg,var(--accent),var(--accent2));flex:0 0 auto}
+h3{font-size:15px;margin:0}
+small{color:var(--ink-soft)}
+.muted{color:var(--ink-soft)}
+.grid{display:grid;gap:12px}
+@media(min-width:760px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}}
+/* header */
+.hero{position:relative;overflow:hidden;border-radius:0 0 26px 26px;max-width:960px;margin:0 auto;padding:26px 16px 22px;color:#eaf6ff;background:linear-gradient(150deg,#0a2c4a,#0e7490 55%,#123b6d)}
+.hero .deco{position:absolute;inset:0;pointer-events:none;opacity:.4}
+.hero .theme{position:absolute;top:12px;right:12px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;border-radius:999px;padding:6px 12px;font-size:13px;cursor:pointer;backdrop-filter:blur(4px)}
+.kicker{display:inline-block;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:3px 11px;font-size:12px;letter-spacing:1px;margin-bottom:10px}
+.hero p{margin:6px 0 0;color:#bfe3f5;font-size:14px}
+/* top attention card */
+.now-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
+.now-label{font-size:12px;letter-spacing:2px;color:var(--ink-soft);text-transform:uppercase}
+.now-title{font-size:clamp(19px,4vw,27px);margin:2px 0 0}
+.now-sub{color:var(--ink-soft);font-size:13px;margin-top:4px}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px;text-align:center}
+.cd{border-radius:16px;padding:12px 4px 9px;background:var(--chip);border:1px solid var(--line)}
+.cd b{display:block;font-size:clamp(24px,7vw,42px);font-variant-numeric:tabular-nums;line-height:1;background:linear-gradient(180deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cd span{font-size:11px;color:var(--ink-soft)}
+.clockline{margin-top:14px;font-size:13px;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
+.clockline .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#22c55e;margin-right:5px;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.25}}
+/* cards */
+.note{background:var(--warn-bg);border:1px solid rgba(180,120,20,.28);color:var(--warn);border-radius:14px;padding:10px 14px;font-size:13.5px;margin-top:10px}
+.danger{background:rgba(220,38,38,.08);border:1px solid rgba(220,38,38,.26);color:var(--bad);border-radius:14px;padding:10px 14px;font-size:13.5px;margin-top:10px}
+.tag{display:inline-block;font-size:11px;border-radius:999px;padding:2px 9px;border:1px solid var(--line);background:var(--chip);color:var(--ink-soft);white-space:nowrap}
+.tag.blue{color:var(--accent2);border-color:rgba(59,130,246,.35);background:rgba(59,130,246,.1)}
+.tag.gold{color:var(--warn);border-color:rgba(210,145,30,.4);background:rgba(210,145,30,.1)}
+.tag.green{color:var(--good);border-color:rgba(16,185,129,.35);background:rgba(16,185,129,.1)}
+.tag.red{color:var(--bad);border-color:rgba(239,68,68,.35);background:rgba(239,68,68,.1)}
+/* overview map */
+.map-legend{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:10px}
+.map-legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:1px}
+.sealine{fill:none;stroke:var(--line);stroke-width:1.2;opacity:.65}
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12px;color:var(--ink-soft);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+@media(max-width:620px){.hide-sm{display:none}}
+.book-card{border:1px solid var(--line);border-radius:16px;padding:14px;background:var(--card2);display:grid;gap:6px}
+.book-card h3{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.kv{font-size:13px;display:grid;grid-template-columns:96px 1fr;gap:2px 10px}
+.kv dt{color:var(--ink-soft)}
+.kv dd{margin:0}
+.addr{cursor:pointer;color:var(--accent2);text-decoration:none;border-bottom:1px dashed currentColor}
+/* day timeline */
+.day{border:1px solid var(--line);border-left:5px solid var(--accent,#0e7490);border-radius:18px;background:var(--card);box-shadow:var(--shadow);margin:18px 0;overflow:hidden}
+.day-head{padding:15px 16px 11px;background:linear-gradient(180deg,var(--card2),transparent)}
+.day-title{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.day-title .dnum{font-size:13px;font-weight:700;letter-spacing:1px;color:var(--accent)}
+.day h3{font-size:clamp(17px,4vw,21px);margin:2px 0 0}
+.tz-note{margin-top:5px;font-size:12px;color:var(--ink-soft)}
+.tl{list-style:none;margin:0;padding:0}
+.tl>li{display:grid;grid-template-columns:88px 1fr;gap:4px 12px;padding:12px 16px;border-top:1px dashed var(--line)}
+.time{font-variant-numeric:tabular-nums}
+.time b{display:block;font-size:15px;line-height:1.3}
+.time small{font-size:11px}
+.evt{min-width:0}
+.evt .head{font-weight:650}
+.evt .desc{font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.badges{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.badge{display:inline-block;font-size:11.5px;border-radius:8px;padding:2px 9px}
+.badge.book{background:rgba(245,158,11,.14);color:#b45309;border:1px solid rgba(245,158,11,.3)}
+.badge.doc{background:rgba(99,102,241,.12);color:#5b5bd6;border:1px solid rgba(99,102,241,.3)}
+.badge.risk{background:rgba(239,68,68,.1);color:#c02626;border:1px solid rgba(239,68,68,.28)}
+.locbtn{display:inline-block;margin-top:7px;font-size:12.5px;text-decoration:none;color:var(--accent2);border:1px solid rgba(59,130,246,.35);background:rgba(59,130,246,.08);padding:3px 10px;border-radius:999px}
+.locbtn::before{content:"⌖ "}
+details.route{margin:0 16px 14px;border:1px dashed var(--line);border-radius:14px;padding:0}
+details.route summary{cursor:pointer;padding:11px 14px;font-size:13.5px;color:var(--accent2);list-style:none}
+details.route summary::-webkit-details-marker{display:none}
+details.route summary::before{content:"🗺 "}
+details.route[open] summary{border-bottom:1px dashed var(--line)}
+.route-body{padding:12px 14px}
+.route-nav{display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:var(--accent);color:#fff;border:0;border-radius:12px;padding:9px 15px;font-size:14px;text-decoration:none}
+.route-nav:active{transform:scale(.98)}
+svg.route-svg{width:100%;height:auto;display:block}
+.plan-alt{background:var(--card2);border:1px solid var(--line);border-radius:14px;margin:12px 16px;padding:12px 14px}
+.plan-alt h4{margin:0 0 8px;font-size:14px;display:flex;align-items:center;gap:7px}
+.plan-alt ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink-soft)}
+.plan-alt li{margin:3px 0}
+/* simple list */
+.todo-group h3{margin:14px 0 6px}
+.todo-group ul{margin:4px 0;padding-left:20px;font-size:14px}
+.todo-group li{margin:5px 0}
+.todo-intro{background:var(--warn-bg);border:1px solid rgba(180,120,20,.28);border-radius:14px;padding:10px 14px;color:var(--warn);font-size:13px}
+/* tips */
+details.tip-card{border:1px solid var(--line);border-radius:15px;background:var(--card2);margin:9px 0;overflow:hidden}
+details.tip-card summary{cursor:pointer;padding:12px 15px;font-weight:650;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details.tip-card summary::after{content:"+";font-size:18px;color:var(--ink-soft);transition:transform .2s}
+details.tip-card[open] summary::after{transform:rotate(45deg)}
+details.tip-card .tip-body{padding:2px 15px 14px;font-size:13.5px}
+details.tip-card ul{margin:6px 0;padding-left:18px}
+details.tip-card li{margin:4px 0}
+footer{color:var(--ink-soft);font-size:12px;text-align:center;margin-top:26px;padding:0 14px}
+.legend-note{font-size:12px;color:var(--ink-soft);margin-top:8px}
+.roomie{display:flex;gap:8px;flex-wrap:wrap;font-size:13px}
+@media(max-width:620px){
+  main{padding:10px 8px 44px}
+  .wrap{padding:15px;border-radius:18px}
+  .tl>li{grid-template-columns:78px 1fr;gap:3px 9px;padding:11px 12px}
+  .time b{font-size:13.5px}
+  .kv{grid-template-columns:82px 1fr}
+}
+@media print{
+  .hero,.route-nav,details.route summary,.theme,.countdown{display:none!important}
+  body{background:#fff;color:#000}
+  .wrap,.day{box-shadow:none;border-color:#bbb;break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="deco" viewBox="0 0 960 220" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 150 C120 120 220 185 330 148 C440 110 500 60 640 92 C770 122 860 70 960 110 V220 H0 Z" fill="rgba(160,240,220,.12)"/>
+    <path d="M-20 175 C140 130 300 205 470 160 C640 115 800 180 980 120" fill="none" stroke="rgba(190,255,235,.35)" stroke-width="2"/>
+    <path d="M80 40 C150 30 210 55 270 40" fill="none" stroke="rgba(160,240,220,.4)" stroke-width="3" opacity=".5"/>
+    <circle cx="760" cy="46" r="26" fill="none" stroke="rgba(255,230,150,.5)" stroke-width="1.5"/>
+    <circle cx="836" cy="24" r="5" fill="rgba(255,230,150,.5)"/>
+    <circle cx="806" cy="70" r="3" fill="rgba(255,230,150,.4)"/>
+  </svg>
+  <button class="theme" id="themeBtn" type="button" aria-label="切换日间/夜间配色">🌙 夜间</button>
+  <span class="kicker">DENMARK · NORWAY · 13 DAYS</span>
+  <h1>丹麦 &amp; 挪威 · 极光季旅行手册</h1>
+  <p>2026-09-26 → 10-08 · 2 人 · 上海出发 · 终点也是上海</p>
+</header>
+
+<main>
+
+<section class="wrap" id="now-card">
+  <div class="now-head">
+    <div>
+      <div class="now-label">此刻关注</div>
+      <div class="now-title" id="nowTitle">正在加载行程…</div>
+      <div class="now-sub" id="nowSub"></div>
+    </div>
+    <span class="tag" id="nowStatus">距出发还有 20 天</span>
+  </div>
+  <div class="countdown" id="cdGrid">
+    <div class="cd"><b id="cdD">–</b><span>天</span></div>
+    <div class="cd"><b id="cdH">–</b><span>小时</span></div>
+    <div class="cd"><b id="cdM">–</b><span>分</span></div>
+    <div class="cd"><b id="cdS">–</b><span>秒</span></div>
+  </div>
+  <div class="clockline"><span><span class="dot"></span><span id="clockNow">读取你的本地时间…</span></span><span id="clockZone"></span></div>
+</section>
+
+<section class="wrap">
+  <h2>行程总览</h2>
+  <p class="muted" style="margin-top:0">每晚住哪里 · 每天用什么颜色走哪段路（示意路线，非精确比例）。点地图下方的每日卡片可展开当日站点与一键导航。</p>
+  <svg id="overview" viewBox="0 0 900 700" role="img" aria-label="行程总览示意图">
+    <rect width="900" height="700" rx="20" fill="none"/>
+    <g fill="none" stroke="rgba(255,255,255,0)" stroke-width="0"/>
+    <path d="M-10 640 Q 80 648 180 636 T 380 644 T 590 630 T 790 646 T 920 636" fill="none" class="sealine"/>
+    <path d="M-10 662 Q 90 674 210 660 T 420 668 T 640 652 T 840 668 T 920 658" fill="none" class="sealine"/>
+    <path d="M-10 684 Q 100 696 230 682 T 450 690 T 660 676 T 860 690 T 920 682" fill="none" class="sealine"/>
+    <g class="route-paths">
+      <path d="M280 607 C 285 565 238 530 232 452" class="rv" data-c="#0ea5a4"/>
+      <path d="M232 452 C 330 385 470 300 742 91" class="rv" data-c="#ef6351"/>
+      <path d="M742 91 C 706 64 668 47 634 45 C 606 43 584 51 574 57 C 548 66 486 82 449 94" class="rv" data-c="#3b82f6"/>
+      <path d="M449 94 C 424 110 406 123 389 137 C 372 150 351 154 332 146" class="rv" data-c="#65a30d"/>
+      <path d="M332 146 C 316 138 312 144 309 150" class="rv" data-c="#d97706"/>
+      <path d="M309 150 C 302 160 300 165 293 160 C 284 154 276 156 267 162 C 260 167 250 166 267 162" class="rv" data-c="#ea580c"/>
+      <path d="M309 150 C 322 146 329 144 332 146 C 345 149 355 143 370 141" class="rv" data-c="#6366f1"/>
+      <path d="M370 141 C 383 137 392 132 389 137 M389 137 C 350 260 290 360 232 452" class="rv" data-c="#c026d3"/>
+    </g>
+    <g class="airlines">
+      <path d="M460 580 L530 560" class="rv air" data-c="#7c6cf0"/>
+      <path d="M270 420 L330 400" class="rv air" data-c="#0ea5a4"/>
+      <path d="M690 150 L750 115" class="rv air" data-c="#ef6351"/>
+      <path d="M490 65 L440 80" class="rv air" data-c="#3b82f6"/>
+      <path d="M190 490 L120 500" class="rv air" data-c="#7c6cf0"/>
+    </g>
+    <g class="city-dots"></g>
+    <g class="labels" font-size="12.5"></g>
+    <g class="nights"></g>
+  </svg>
+  <div class="map-legend" id="mapLegend"></div>
+  <div class="legend-note">✓ 圆点 = 城市/机场 　◇ 小房子 = 当晚住处　→ 虚线为飞行段；实线为邮轮/自驾/步行段。亚洲段（上海→曼谷→哥本哈根、奥斯陆→曼谷→上海）用图内短虚线和航班表示。</div>
+</section>
+
+<section class="wrap">
+  <h2>已确认的预订</h2>
+  <div id="bookings"></div>
+</section>
+
+<section class="wrap">
+  <h2>逐日行程</h2>
+  <p class="muted" style="margin-top:0">时间为“行程地当地时间”；跨时区打开时，“此刻关注”会按你的设备时区自动换算。有 🎟 的表示需要提前购票/预约，有 🧾 的表示要带凭证，有 ⚠ 的表示风险或需复核。</p>
+  <div id="daylist"></div>
+</section>
+
+<section class="wrap">
+  <h2>待办清单</h2>
+  <div class="todo-intro">清单只做提醒、不设勾选框，以免不同设备看到的状态不一致。完成哪一项，直接告诉我，我会从页面上把它划掉/删掉。</div>
+  <div id="todos"></div>
+</section>
+
+<section class="wrap">
+  <h2>实用贴士</h2>
+  <div id="tips"></div>
+</section>
+
+<footer>
+  所有时刻按行程地时区记录（丹麦/挪威 9–10 月为 UTC+2，泰国 UTC+7，中国 UTC+8），打开时会换算为你所在时区。本页是单个 HTML 文件：在手机浏览器里保存/下载本页，之后可以完全离线打开查看；点“地图导航”时才需要联网。<br>祝旅途顺利，追到极光 ☁
+</footer>
+</main>
+
+<script id="trip-data">
+window.TRIP_DATA = {
+  trip: {
+    name: "丹麦 & 挪威 · 极光季",
+    start: "2026-09-26T16:00:00",
+    startTz: "Asia/Shanghai",
+    end: "2026-10-08T16:00:00",
+    endTz: "Asia/Shanghai"
+  },
+  colors: {
+    "2026-09-26": "#7c6cf0",
+    "2026-09-27": "#0ea5a4",
+    "2026-09-28": "#ef6351",
+    "2026-09-29": "#3b82f6",
+    "2026-09-30": "#3b82f6",
+    "2026-10-01": "#ec4899",
+    "2026-10-02": "#65a30d",
+    "2026-10-03": "#d97706",
+    "2026-10-04": "#ea580c",
+    "2026-10-05": "#6366f1",
+    "2026-10-06": "#c026d3",
+    "2026-10-07": "#9333ea",
+    "2026-10-08": "#0891b2"
+  },
+  flights: [
+    {code:"TG665", route:"上海浦东 T2 → 曼谷素万那普", when:"09-26 17:25–20:50", tz:"Asia/Shanghai / Asia/Bangkok", note:"行李直挂到哥本哈根中转段"},
+    {code:"TG950", route:"曼谷素万那普 → 哥本哈根 T3", when:"09-27 01:10–07:40", tz:"Asia/Bangkok / Europe/Copenhagen", note:"抵达后出关、取行李寄存"},
+    {code:"D83234", route:"哥本哈根 T2 → 奥斯陆加勒穆恩", when:"09-27 20:30–21:40", tz:"Europe/Copenhagen / Europe/Oslo", note:"需在哥本哈根重新托运"},
+    {code:"DY310", route:"奥斯陆加勒穆恩 → 希尔克内斯", when:"09-28 08:15–10:25", tz:"Europe/Oslo", note:""},
+    {code:"WF867", route:"特罗姆瑟 → 罗弗敦伊文内斯 EVE", when:"10-02 16:45–18:05", tz:"Europe/Oslo", note:"当天 18:05 后取租车"},
+    {code:"DY363", route:"伊文内斯 EVE → 奥斯陆加勒穆恩", when:"10-06 11:05–12:50", tz:"Europe/Oslo", note:""},
+    {code:"TG955", route:"奥斯陆加勒穆恩 → 曼谷素万那普", when:"10-07 13:45 → 次日 06:15", tz:"Europe/Oslo / Asia/Bangkok", note:"以 TG955 为准；行李直挂"},
+    {code:"TG664", route:"曼谷素万那普 → 上海浦东 T2", when:"10-08 10:45–16:00", tz:"Asia/Bangkok / Asia/Shanghai", note:""}
+  ],
+  car: {
+    title: "Hertz 租车 · Evenes 机场（罗弗敦段）",
+    pickup: "10-02 18:30 · Evenes Airport & Self Service Kiosk（Harstad Narvik 机场，8534 Evenes）",
+    drop: "10-06 11:30 · 同一门店（可提前自助还车）",
+    car: "紧凑型 4–5 门 · 自动档 · 四驱 · 空调（Toyota Yaris Cross 4×4 或同级）",
+    fuel: "汽油车，不限里程",
+    include: "已含车辆碰撞险、盗抢险、超级保险计划；门店营业时间周一–周五 08:00–22:30，周六 08:00–15:00，周日 10:00–22:00",
+    pay: "预计柜台总额 3,763.86 NOK；取车需主驾驶人护照 + 驾照 + 信用卡，预授权约 200 美元；25 岁以下另有低龄费",
+    phone: "Hertz 中国 400 921 1138"
+  },
+  cruise: {
+    title: "Havila 邮轮 · MS Havila Polaris（Kirkenes → Tromsø）",
+    when: "09-29 12:30 离港 → 09-30 23:45 抵达特罗姆瑟",
+    cabin: "内舱 2 人 · 已含餐食套餐",
+    excursion: "北角早餐团 Breakfast North Cape：09-30 06:00 出发，2 人 × 2,360 NOK",
+    terminal: "Kirkenes Terminal，Kaiveien 4，9900 Kirkenes",
+    checkin: "码头登船办理 09:00 开始，最晚 12:15 前完成；带护照 + 信用卡 + Havila 确认单",
+    phone: "Havila +47 70 00 70 70"
+  },
+  fishing: {
+    title: "海钓 · Polar Fjord & Fishing Cruise（特罗姆瑟）",
+    when: "10-01 10:00–15:00（5 小时，英文）",
+    where: "Front Pier, Killengreens gate 7–11, 9008 Tromsø（Radisson Blu 旁）",
+    meet: "09:45 前到达码头集合（出发前 15 分钟），出示 GetYourGuide 凭证",
+    provider: "Polar Adventures · +47 90 98 99 95",
+    note: "船上有鱼汤；活动结束回到同一码头；09-30 10:00 前可免费取消"
+  },
+  hotels: [
+    {d:"09-27", name:"Clarion Hotel Oslo Airport", addr:"Hans Gaarders veg 15, Gardermoen 2060, Norway", tel:"+47 63 94 94 94", note:"22:30 后抵达，建议提前电话告知"},
+    {d:"09-28", name:"Scandic Kirkenes", addr:"Kongens gate 1-3, Kirkenes 9915, Norway", tel:"+47 78 99 59 00", note:"16:00 后可入住，上午先寄存行李"},
+    {d:"09-30 / 10-01", name:"Skaret by Vander", addr:"Storgata 25, Tromsø 9008, Norway", tel:"+47 21 38 01 88", note:"09-30 23:45 下船步行约 6 分钟；已提前告知晚到"},
+    {d:"10-02", name:"Cabin in Lofoten（Airbnb）", addr:"Kongshalsveien 11 Hytte, Vågan 8300, Norway", tel:"+47 91 71 87 23", note:"在 Svolvær 一带；KIWI 购物后入住"},
+    {d:"10-03 / 10-04", name:"Lofoten Seaview Apartment A（Airbnb）", addr:"Kvanndalen 6 1, Vestvågøy 8352, Norway", tel:"+47 95 23 25 53", note:"Leknes 西侧海边；10-03 约 17:30 入住"},
+    {d:"10-05", name:"Lødingen Brygge", addr:"Sjøveien 12, 8410 Lødingen, Norway", tel:"+47 94 84 36 34", note:"YX 加油站就在同一条路上（Sjøveien 62）"},
+    {d:"10-06", name:"Anker Hotel", addr:"Storgata 55, Oslo 0182, Norway", tel:"+47 22 99 75 00", note:"近 Oslo S，去 MUNCH/歌剧院步行即可"}
+  ],
+  days: [
+    {
+      date: "2026-09-26", short: "9/26", wd: "周六", title: "上海 → 曼谷（中转夜）", where: "机上 / 曼谷素万那普机场",
+      tzLabel: "前半段用上海时间（UTC+8），后半段用曼谷时间（UTC+7）", mode: null, note: "",
+      items: [
+        {t:"16:00", z:"Asia/Shanghai", icon:"🧳", h:"建议 16:00 前抵达浦东机场 T2", d:"国际航班提前约 2 小时完成值机与安检，17:25 起飞。", loc:null},
+        {t:"17:25–20:50", z:"Asia/Shanghai", icon:"✈️", h:"TG665 上海浦东 T2 → 曼谷素万那普", d:"行李直挂；预计 21:30 前后下机。", badges:["已出票"], loc:{name:"上海浦东国际机场 T2", q:"Shanghai Pudong International Airport Terminal 2, China"}},
+        {t:"21:30", z:"Asia/Bangkok", icon:"🛬", h:"曼谷落地 · 中转区休息", d:"夜里 01:10 才飞哥本哈根，有几小时中转时间。", loc:{name:"曼谷素万那普机场", q:"Suvarnabhumi Airport, Bangkok, Thailand"}},
+        {t:null, z:"Asia/Bangkok", icon:"🛍️", h:"7-11 小采购（可选）", d:"睡裤、小瓶漱口水（需 ≤100ml、可随身带上飞机）。"},
+        {t:null, z:"Asia/Bangkok", icon:"🛋️", h:"机场贵宾厅休息（可选）", d:"淘宝/现场买约 ¥350/人；确认是否可过夜与淋浴。", badges:["可选"]},
+        {t:"00:40", od:"2026-09-27", z:"Asia/Bangkok", icon:"🚶", h:"前往 TG950 登机口", d:"01:10 起飞，预留安检与步行时间。"}
+      ]
+    },
+    {
+      date: "2026-09-27", short: "9/27", wd: "周日", title: "哥本哈根一日 + 夜飞奥斯陆", where: "Clarion Hotel Oslo Airport",
+      tzLabel: "凌晨用曼谷时间；进入丹麦后全部用哥本哈根时间（UTC+2）；晚间奥斯陆同用 UTC+2", mode: "walking",
+      note: "哥本哈根只有约 7.5 小时，寄存行李的完成时间决定选 Plan A 还是 Plan B，不要贪多。",
+      items: [
+        {t:"01:10–07:40", z:"Asia/Bangkok", icon:"✈️", h:"TG950 曼谷 → 哥本哈根 T3", d:"预计 09:00 前后出机场；这是申根入境。"},
+        {t:"09:00", z:"Europe/Copenhagen", icon:"🧳", h:"取行李 → P7A Sixty 付费寄存", d:"你已确认 P7A 是付费寄存点；20:30 从 T2 起飞的 D83234 需重新托运，所以行李不能留在上一程。"},
+        {t:"10:00", z:"Europe/Copenhagen", icon:"🚇", h:"二选一：Plan A / Plan B", d:"寄存若 11:00 前搞定且不想登宫 → Plan A；若 10:00 前就能出发且想登克里斯蒂安堡宫 → Plan B。"},
+        {t:null, z:"Europe/Copenhagen", icon:"🗺️", h:"Plan A（约 3h45m，不登宫）", d:"克里斯蒂安堡宫外观 → 新港 → 腓特烈教堂 → Hart 咖啡/烘焙 → 吉菲昂喷泉 → 美人鱼雕像 → 卡斯特雷特 → April 餐食 → Strøget 步行街 → 回机场。", route:["Christiansborg Palace, Copenhagen, Denmark","Nyhavn, Copenhagen, Denmark","Frederik's Church, Copenhagen, Denmark","Hart Bageri Gammel Mønt 4, Copenhagen, Denmark","Gefion Fountain, Copenhagen, Denmark","The Little Mermaid, Copenhagen, Denmark","Kastellet, Copenhagen, Denmark","Strøget, Copenhagen, Denmark"]},
+        {t:null, z:"Europe/Copenhagen", icon:"🗺️", h:"Plan B（约 2h55m，含登宫）", d:"新港 → 腓特烈教堂 → Hart → 吉菲昂 → 美人鱼 → 卡斯特雷特 → 克里斯蒂安堡宫（约 13:10 入内）→ 回机场。", route:["Nyhavn, Copenhagen, Denmark","Frederik's Church, Copenhagen, Denmark","Hart Bageri Gammel Mønt 4, Copenhagen, Denmark","Gefion Fountain, Copenhagen, Denmark","The Little Mermaid, Copenhagen, Denmark","Kastellet, Copenhagen, Denmark","Christiansborg Palace, Copenhagen, Denmark"]},
+        {t:"17:20", z:"Europe/Copenhagen", icon:"🚌", h:"回到哥本哈根机场 T2", d:"路程约 30 分钟；机场 7-11 吃热狗当晚餐。"},
+        {t:"20:30–21:40", z:"Europe/Copenhagen", icon:"✈️", h:"D83234 哥本哈根 T2 → 奥斯陆加勒穆恩", d:"行李需要重新托运，21:40 抵达。"},
+        {t:"22:30", z:"Europe/Oslo", icon:"🏨", h:"公交 420/S44 或接驳车 → Clarion Hotel", d:"汉斯·高德斯韦 15 号；抵达晚，若仍担心可先电话 +47 63 94 94 94。", badges:["晚到"], loc:{name:"Clarion Hotel Oslo Airport", q:"Clarion Hotel Oslo Airport, Hans Gaarders veg 15, 2060 Gardermoen, Norway"}}
+      ]
+    },
+    {
+      date: "2026-09-28", short: "9/28", wd: "周一", title: "飞希尔克内斯 · 边境小镇一日", where: "Scandic Kirkenes",
+      tzLabel: "奥斯陆/希尔克内斯均为欧洲中部夏令时（UTC+2）", mode: "walking",
+      topRoute: ["Andersgrotta, Kirkenes, Norway","Grenselandmuseet, Førstevannslia 9900 Kirkenes, Norway","Soviet Liberation Monument, Kirkenes, Norway","Kirkenes kirke, Kirkenes, Norway","Aurora Restobar, Dr. Wessels gate 7, 9900 Kirkenes, Norway"],
+      note: "安德斯洞窟每天只有 12:30 一场导览，午饭别拖过 12:15。日落约 17:47，Prestefjellet 方案按“17:00 前出发”执行，原稿 18:25 会天黑。",
+      items: [
+        {t:"06:00–06:15", z:"Europe/Oslo", icon:"🚌", h:"Clarion → 奥斯陆机场", d:"酒店离航站楼很近，坐酒店班车或步行；08:15 前完成安检。"},
+        {t:"08:15–10:25", z:"Europe/Oslo", icon:"✈️", h:"DY310 奥斯陆 → 希尔克内斯", d:"10:25 落地，预计 11:00 拿好行李。"},
+        {t:"11:00–11:30", z:"Europe/Oslo", icon:"🚌", h:"机场巴士进市区", d:"FB92 / 150 / FB94，约 22–27 分钟到市中心。", loc:{name:"Kirkenes bus terminal", q:"Kirkenes, Norway"}},
+        {t:"11:30", z:"Europe/Oslo", icon:"🏨", h:"Scandic Kirkenes 寄存行李", d:"16:00 才能入住，先寄存。"},
+        {t:"11:45–12:15", z:"Europe/Oslo", icon:"🍽️", h:"市中心午餐", d:"控制在 30 分钟内，12:20 前走到安德斯洞窟。"},
+        {t:"12:30–13:00", z:"Europe/Oslo", icon:"🎟️", h:"Andersgrotta 防空洞导览", d:"每日 12:30 固定英文场，约 30 分钟，350 NOK/人现场购票；周一开放。若觉得不值可在门口决定，但当天没有第二场。", badges:["提前购/现场购","12:30 固定"], loc:{name:"Andersgrotta, Kirkenes", q:"Andersgrotta, Kirkenes, Norway"}},
+        {t:"13:00–14:45", z:"Europe/Oslo", icon:"🏛️", h:"边境博物馆 Grenselandmuseet", d:"瓦尔朗厄博物馆体系；每日 09:00–15:00、周一开放，公众假期闭馆。", loc:{name:"Grenselandmuseet, Kirkenes", q:"Grenselandmuseet, Førstevannslia 9900 Kirkenes, Norway"}},
+        {t:"14:45–15:30", z:"Europe/Oslo", icon:"🚶", h:"苏联解放纪念碑", d:"步行约 20 分钟，拍照 15 分钟。", loc:{name:"Liberation Monument Kirkenes", q:"Soviet Liberation Monument, Kirkenes, Norway"}},
+        {t:"15:30–16:45", z:"Europe/Oslo", icon:"🛁", h:"回酒店入住、休息", d:"若提前到，在大堂等或就近走走。", badges:["16:00 可入住"]},
+        {t:"16:45–17:00", z:"Europe/Oslo", icon:"⛪", h:"Kirkenes 教堂", d:"拍 10 分钟照。", loc:{name:"Kirkenes kirke", q:"Kirkenes kirke, Kirkenes, Norway"}},
+        {t:"17:00–", z:"Europe/Oslo", icon:"🍽️", h:"晚餐 · 推荐 Aurora Restobar", d:"Dr. Wessels gate 7；周一 15:00–22:00 营业，主打本地海鲜/小食，+47 90 06 39 60。备选 Surf & Turf（Dr. Wessels gate 2，+47 464 45 245）和 Ritz（Dr. Wessels gate 17，+47 78 99 34 81）——都不是 Shanghai 餐厅。", loc:{name:"Aurora Restobar Kirkenes", q:"Aurora Restobar, Dr. Wessels gate 7, 9900 Kirkenes, Norway"}},
+        {t:null, z:"Europe/Oslo", icon:"⚠️", h:"Plan B · Prestefjellet 日落（天气好才去）", d:"9/28 Kirkenes 日落约 17:47。想上山要在 16:30 前结束市中心，17:00 从酒店出发（步行约 22 分钟），17:25–17:50 在山顶，18:00 前回程。原稿写的 18:25 日落已太晚。", badges:["已修正时间"], route:["Scandic Kirkenes, Norway","Prestefjellet, Kirkenes, Norway"], loc:{name:"Prestefjellet viewpoint", q:"Prestefjellet, Kirkenes, Norway"}}
+      ]
+    },
+    {
+      date: "2026-09-29", short: "9/29", wd: "周二", title: "Havila 邮轮启航", where: "MS Havila Polaris（船上）",
+      tzLabel: "全程挪威时间（UTC+2）", mode: "walking",
+      note: "登船 check-in 09:00 开始、最晚 12:15。9/30 23:45 才到特罗姆瑟，别把充电器/洗漱用品放进大件行李深处。",
+      items: [
+        {t:"08:30", z:"Europe/Oslo", icon:"🏨", h:"退房 + 寄存", d:"上午还在希尔克内斯市区逛吃。"},
+        {t:"08:30–10:20", z:"Europe/Oslo", icon:"🚶", h:"市中心最后闲逛", d:"教堂、纪念品、随便吃吃喝喝。"},
+        {t:"10:20–10:30", z:"Europe/Oslo", icon:"🧳", h:"取行李出发去码头", d:"步行约 22 分钟；拖行李预留 30 分钟。"},
+        {t:"10:30–11:15", z:"Europe/Oslo", icon:"🚢", h:"抵达 Kirkenes Terminal", d:"Kaiveien 4；带护照 + 信用卡 + Havila 确认单办理登船。", badges:["登船办理","🧾带凭证"], loc:{name:"Havila Kirkenes terminal", q:"Kirkenes terminal, Kaiveien 4, 9900 Kirkenes, Norway"}},
+        {t:"12:30", z:"Europe/Oslo", icon:"⚓", h:"MS Havila Polaris 离港", d:"Kirkenes → Tromsø，内舱 2 人，餐食套餐已含。"},
+        {t:null, z:"Europe/Oslo", icon:"🦀", h:"上船后先预约“帝王蟹”晚餐", d:"原计划：上船立刻预约晚上的帝王蟹/晚餐时段，早订才有海景位。"},
+        {t:"12:30–14:00", z:"Europe/Oslo", icon:"🍽️", h:"午餐（发餐时段）", d:"套餐已含。"},
+        {t:"16:00–17:00", z:"Europe/Oslo", icon:"🏋️", h:"健身房爬坡", d:""},
+        {t:"18:00–20:00", z:"Europe/Oslo", icon:"🍽️", h:"晚餐（早一点有海景）", d:"吃完上甲板。"},
+        {t:"20:00–", z:"Europe/Oslo", icon:"🌌", h:"等极光", d:"船上通常有极光叫醒通知，也注意广播。"}
+      ]
+    },
+    {
+      date: "2026-09-30", short: "9/30", wd: "周三", title: "北角早餐团 · 夜抵特罗姆瑟", where: "Skaret by Vander（Tromsø）",
+      tzLabel: "挪威时间（UTC+2）", mode: "walking",
+      topRoute: ["Honningsvåg, Norway","North Cape, Nordkapp, Norway","Hammerfest, Norway","Skaret by Vander, Storgata 25, 9008 Tromsø, Norway"],
+      note: "北角团为 06:00 出发（已购）；12:30 在 Hammerfest 回船。23:45 才到 Tromsø，Skaret 已提前安排晚入住。",
+      items: [
+        {t:"05:15", z:"Europe/Oslo", icon:"⏰", h:"起床", d:"把随身小包准备好。"},
+        {t:"05:45", z:"Europe/Oslo", icon:"🚌", h:"Honningsvåg 下船集合", d:"上大巴，06:00 北角早餐团出发。", badges:["已购票"]},
+        {t:"06:30", z:"Europe/Oslo", icon:"🌅", h:"北角 North Cape", d:"日出/早餐，行程约 6h45m，之后在 Hammerfest 回船。", loc:{name:"North Cape", q:"North Cape, Nordkapp, Norway"}},
+        {t:"12:30", z:"Europe/Oslo", icon:"⚓", h:"Hammerfest 回船", d:"午饭后休息。"},
+        {t:"16:00–17:00", z:"Europe/Oslo", icon:"🏋️", h:"健身房", d:""},
+        {t:"18:00–20:00", z:"Europe/Oslo", icon:"🍽️", h:"晚餐", d:"早一点有海景。"},
+        {t:"20:00–23:45", z:"Europe/Oslo", icon:"🌌", h:"等极光 / 收拾行李", d:"23:45 前完成退房准备。"},
+        {t:"23:45", z:"Europe/Oslo", icon:"🏨", h:"抵达 Tromsø · 入住 Skaret by Vander", d:"Storgata 25，步行约 6 分钟；已提前告知晚到，+47 21 38 01 88。", loc:{name:"Skaret by Vander", q:"Skaret by Vander, Storgata 25, 9008 Tromsø, Norway"}}
+      ]
+    },
+    {
+      date: "2026-10-01", short: "10/1", wd: "周四", title: "海钓 5 小时 + 缆车日落", where: "Skaret by Vander（Tromsø）",
+      tzLabel: "挪威时间（UTC+2）", mode: "transit",
+      note: "海钓 09:45 集合、迟到不候；日落约 18:08，缆车每 30 分钟一班、运营到午夜，建议出发前确认当日票。",
+      items: [
+        {t:"09:20–09:45", z:"Europe/Oslo", icon:"🚶", h:"步行到 Front Pier 集合", d:"Killengreens gate 7–11，Radisson Blu 旁；09:45 前必须到。", badges:["09:45 集合","🧾带凭证"], loc:{name:"Front Pier Tromsø", q:"Front Pier, Killengreens gate 7-11, 9008 Tromsø, Norway"}},
+        {t:"10:00–15:00", z:"Europe/Oslo", icon:"🎣", h:"Polar Fjord & Fishing Cruise", d:"海钓 5 小时，英文；船上有鱼汤；回原码头。供应商 Polar Adventures +47 90 98 99 95。", badges:["已购票"]},
+        {t:"15:00–15:45", z:"Europe/Oslo", icon:"🌭", h:"Raketten Bar & Pølse 鹿肉热狗", d:"关 19:00，作为海钓后的补给。"},
+        {t:"15:45–16:30", z:"Europe/Oslo", icon:"🚌", h:"公交 28/26 → Fjellheisen 缆车站", d:"Sollivegen 12, Tromsdalen。"},
+        {t:"16:30–17:45", z:"Europe/Oslo", icon:"🚡", h:"Fjellheisen 缆车上山 + 山顶步行", d:"每整点/半点发车，建议网上先买往返票并查当日运营；山顶风大。", badges:["建议提前购票"], loc:{name:"Fjellheisen cable car Tromsø", q:"Fjellheisen, Sollivegen 12, Tromsdalen, Norway"}},
+        {t:"17:45–18:20", z:"Europe/Oslo", icon:"🌇", h:"山顶看日落", d:"10/1 日落约 18:08，18:20 前下山。"},
+        {t:"18:20–19:40", z:"Europe/Oslo", icon:"⛪", h:"下山步行约 15 分钟 → 北极大教堂", d:"外观拍照。", loc:{name:"Arctic Cathedral", q:"Arctic Cathedral, Hans Nilsens vei 41, 9020 Tromsdalen, Norway"}},
+        {t:"19:40–20:30", z:"Europe/Oslo", icon:"🚌", h:"公交 26 回市中心/酒店", d:""},
+        {t:"20:30–23:00", z:"Europe/Oslo", icon:"🌌", h:"Prestvannet 湖等极光", d:"公交 28；穿厚、带热水，湖边风大。", loc:{name:"Prestvannet Tromsø", q:"Prestvannet, Tromsø, Norway"}},
+        {t:"23:00", z:"Europe/Oslo", icon:"🏨", h:"回酒店休息", d:"明天中午前还有购物时间。"}
+      ]
+    },
+    {
+      date: "2026-10-02", short: "10/2", wd: "周五", title: "特罗姆瑟购物 → 自驾夜抵 Svolvær", where: "Cabin in Lofoten（Svolvær）",
+      tzLabel: "挪威时间（UTC+2）", mode: "driving",
+      note: "EVE 机场到 Svolvær 实际约 166 km / 2h20–2h25（不是原稿的 2h40）。19:30 出发约 21:45–21:50 到 Svolvær，KIWI 23:00 关、Circle K 到午夜，时间够。",
+      items: [
+        {t:"09:00", z:"Europe/Oslo", icon:"🏨", h:"退房、行李寄存", d:"傍晚飞罗弗敦，白天仍可逛特罗姆瑟。"},
+        {t:"09:00–11:30", z:"Europe/Oslo", icon:"🛍️", h:"市中心闲逛", d:"Alti Nerstranda 商场、Storgata 主街、纪念品店（原稿写的“Svolvær”应为特罗姆瑟市区）。"},
+        {t:"11:30–13:50", z:"Europe/Oslo", icon:"🛍️", h:"公交 33 约 26 分钟 → Jekta 商场", d:"机场旁大商场，逛 + 吃饭。"},
+        {t:"13:50–14:10", z:"Europe/Oslo", icon:"🚌", h:"公交 24 约 4 分钟 → 机场", d:"车次少，预留缓冲。"},
+        {t:"14:10–16:45", z:"Europe/Oslo", icon:"✈️", h:"值机 / 退税 / 免税", d:""},
+        {t:"16:45–18:05", z:"Europe/Oslo", icon:"✈️", h:"WF867 特罗姆瑟 → 伊文内斯 EVE", d:"18:05 落地，约 18:45 拿齐行李。"},
+        {t:"18:45–19:30", z:"Europe/Oslo", icon:"🚗", h:"Hertz 取车", d:"预约 18:30；Evenes 机场 Self Service Kiosk；带驾照+信用卡。", badges:["取车"], loc:{name:"Hertz Evenes Airport", q:"Harstad Narvik Airport Evenes, Evenes, Norway"}},
+        {t:"19:30–21:50", z:"Europe/Oslo", icon:"🛣️", h:"驾车 EVE → Svolvær", d:"E10/Lofast 约 166 km；10 月天黑得早，注意隧道和鹿。若想先加油，机场附近 Circle K Evenes（Bedringens vei 1）24 小时。", badges:["约 2h20m"], loc:{name:"Svolvær", q:"Svolvær, Norway"}},
+        {t:"21:50–22:25", z:"Europe/Oslo", icon:"🛒", h:"KIWI Osan Svolvær 补给", d:"Måseveien 1，周一–周六 07:00–23:00。", loc:{name:"KIWI Osan Svolvær", q:"KIWI Osan Svolvær, Måseveien 1, 8300 Svolvær, Norway"}},
+        {t:"22:30", z:"Europe/Oslo", icon:"🏨", h:"入住 Cabin in Lofoten", d:"Kongshalsveien 11, Vågan 8300；+47 91 71 87 23。", loc:{name:"Cabin in Lofoten", q:"Kongshalsveien 11, Vågan, Norway"}}
+      ]
+    },
+    {
+      date: "2026-10-03", short: "10/3", wd: "周六", title: "罗弗敦西岸：Henningsvær 与白沙滩", where: "Lofoten Seaview Apartment A（Kvanndalen）",
+      tzLabel: "挪威时间（UTC+2）", mode: "driving",
+      note: "Sennesvik 与 Kvanndalen 之间隔着峡湾与 Nappstraum 隧道，驾车约 50–60 分钟，不是原稿的 2 分钟。若不赶路或体力有限，可放弃 Sennesvik，把时间留给 Uttakleiv。",
+      items: [
+        {t:"09:15", z:"Europe/Oslo", icon:"🏨", h:"退房", d:""},
+        {t:"09:15–09:30", z:"Europe/Oslo", icon:"🛒", h:"到 Coop Extra Svolvær", d:"Lofotgata 33，07:00–23:00。"},
+        {t:"09:30–10:15", z:"Europe/Oslo", icon:"🥐", h:"补给 + 早餐", d:"买好今天路上的水和小食。"},
+        {t:"10:15–11:00", z:"Europe/Oslo", icon:"🛣️", h:"驾车到 Henningsvær", d:"约 40 分钟（原稿 33 分钟略乐观）。", loc:{name:"Henningsvær", q:"Henningsvær, Norway"}},
+        {t:"11:00–12:30", z:"Europe/Oslo", icon:"🏡", h:"Henningsvær 足球场 + 渔村", d:"海边足球场拍照、港口与小店，共约 1.5 小时。"},
+        {t:"12:30–13:40", z:"Europe/Oslo", icon:"🛣️", h:"驾车到 Hauklandstranda", d:"约 61 km / 1 小时。", loc:{name:"Haukland Beach", q:"Hauklandstranda, Vestvågøy, Norway"}},
+        {t:"13:40–14:30", z:"Europe/Oslo", icon:"🏖️", h:"Haukland 白沙滩", d:"停车用 EasyPark/Vipps，前 20 分钟免费，约 80 NOK/3h、110 NOK/4h（以现场牌为准）。", badges:["付费停车"]},
+        {t:"14:30–14:35", z:"Europe/Oslo", icon:"🛣️", h:"开车到 Uttakleiv", d:"5 分钟。", loc:{name:"Uttakleiv Beach", q:"Uttakleiv Beach, Lofoten, Norway"}},
+        {t:"14:35–15:20", z:"Europe/Oslo", icon:"🏖️", h:"Uttakleiv 海滩", d:"自动车牌识别收费，约 60 NOK/3h，无需取票。", badges:["付费停车"]},
+        {t:"15:20–15:50", z:"Europe/Oslo", icon:"🛣️", h:"驾车到 Sennesvik（可选）", d:"约 30 分钟。"},
+        {t:"15:50–16:30", z:"Europe/Oslo", icon:"🚶", h:"Sennesvik 海滨", d:"体力/时间允许就去，否则直接回民宿。"},
+        {t:"16:30–17:30", z:"Europe/Oslo", icon:"🛣️", h:"驾车回 Kvanndalen 民宿", d:"约 50–60 分钟，过 Nappstraum 隧道；天黑前到达。", badges:["约 1h"]},
+        {t:"17:30", z:"Europe/Oslo", icon:"🏨", h:"入住 Lofoten Seaview Apartment A", d:"Kvanndalen 6 1, Vestvågøy 8352；+47 95 23 25 53。"}
+      ]
+    },
+    {
+      date: "2026-10-04", short: "10/4", wd: "周日", title: "Hamnøy、Å 与 Reinebringen", where: "Lofoten Seaview Apartment A（Kvanndalen）",
+      tzLabel: "挪威时间（UTC+2）", mode: "driving",
+      note: "Reinebringen 必须停 Reine Ytre Havn 付费停车场（约 40 NOK/小时），E10 隧道口路边停车罚 900 NOK。十月为季末，出发前一晚查 Moskenes 市是否临时关闭；雨雪或大风别硬爬。",
+      items: [
+        {t:"08:00–09:00", z:"Europe/Oslo", icon:"🛣️", h:"驾车 Kvanndalen → Hamnøy", d:"约 55–65 分钟。"},
+        {t:"09:00–09:30", z:"Europe/Oslo", icon:"📸", h:"Hamnøy 红屋渔村", d:"孤独星球封面机位在桥东侧。", loc:{name:"Hamnøy", q:"Hamnøy, Moskenes, Norway"}},
+        {t:"09:30–09:50", z:"Europe/Oslo", icon:"🛣️", h:"开车到 Å", d:"约 10–15 分钟。", loc:{name:"Å i Lofoten", q:"Å, Moskenes, Norway"}},
+        {t:"09:50–12:00", z:"Europe/Oslo", icon:"🏡", h:"Å 渔村：红屋 + 博物馆 + 海边", d:"世界尽头的渔村，走走拍拍约 2 小时。"},
+        {t:"12:00–12:20", z:"Europe/Oslo", icon:"🅿️", h:"开到 Reine Ytre Havn 停车场", d:"付费（EasyPark/信用卡），步行约 15 分钟到 Reinebringen 登山口。", badges:["付费停车"], loc:{name:"Reine Ytre Havn parking", q:"Reine Ytre Havn, Reine, Norway"}},
+        {t:"12:20–12:50", z:"Europe/Oslo", icon:"🍽️", h:"Reine 午餐/休整", d:"准备水和登山鞋。"},
+        {t:"13:00–16:00", z:"Europe/Oslo", icon:"🥾", h:"Reinebringen 登山", d:"约 1,978 级石阶，往返约 3 小时；湿滑时极其危险。登顶能俯瞰 Reine 峡湾。", badges:["查天气/开放","量力而行"]},
+        {t:"16:00–17:00", z:"Europe/Oslo", icon:"🍽️", h:"Reine 附近晚餐/休息", d:"10 月营业餐厅有限，现场看当天情况。"},
+        {t:"17:00–18:00", z:"Europe/Oslo", icon:"🛣️", h:"开车回 Kvanndalen", d:"约 1 小时；10/4 日落约 18:40，尽量天黑前开过山路。"}
+      ]
+    },
+    {
+      date: "2026-10-05", short: "10/5", wd: "周一", title: "Svolvær 补给 → 瀑布 → Lødingen", where: "Lødingen Brygge",
+      tzLabel: "挪威时间（UTC+2）", mode: "driving",
+      note: "今晚在 Lødingen YX（Sjøveien 62，开到 22:00）加满油，明天一早还车就不用赶。",
+      items: [
+        {t:"08:45–09:45", z:"Europe/Oslo", icon:"🛣️", h:"驾车 Kvanndalen → Svolvær", d:"约 50–65 分钟（原稿 1h15 偏保守）。"},
+        {t:"09:45–11:10", z:"Europe/Oslo", icon:"🛒", h:"Svolvær 市中心 + 补给", d:"KIWI/Coop Extra 都可，把水、零食和晚饭料备足。"},
+        {t:"11:10–11:30", z:"Europe/Oslo", icon:"🛣️", h:"开车到 Austnesfjorden", d:"约 10–15 分钟。", loc:{name:"Austnesfjorden", q:"Austnesfjorden, Nordland, Norway"}},
+        {t:"11:30–12:00", z:"Europe/Oslo", icon:"📸", h:"Austnesfjorden 观景点", d:"30 分钟拍照。"},
+        {t:"12:00–12:35", z:"Europe/Oslo", icon:"🛣️", h:"开车到 Myrland", d:"约 33 分钟。"},
+        {t:"12:35–13:15", z:"Europe/Oslo", icon:"🚶", h:"Myrland 短暂停留", d:"原稿仅写了车程，建议顺路歇 10–15 分钟即可。"},
+        {t:"13:15–14:05", z:"Europe/Oslo", icon:"🛣️", h:"开车到 Grønelva 瀑布", d:"约 47 分钟。"},
+        {t:"14:05–14:30", z:"Europe/Oslo", icon:"💧", h:"Grønelva fossefall", d:"瀑布游览约 20 分钟。", loc:{name:"Grønelva fossefall", q:"Grønelva, Lødingen, Norway"}},
+        {t:"14:30–14:45", z:"Europe/Oslo", icon:"🏨", h:"入住 Lødingen Brygge", d:"Sjøveien 12, 8410 Lødingen；+47 94 84 36 34。", loc:{name:"Lødingen Brygge", q:"Lødingen Brygge, Sjøveien 12, 8410 Lødingen, Norway"}},
+        {t:"15:00–18:00", z:"Europe/Oslo", icon:"☕", h:"民宿休息", d:"洗衣机/充电/整理照片。"},
+        {t:"18:00–19:30", z:"Europe/Oslo", icon:"🗼", h:"灯塔散步", d:"步行约 15 分钟，看日落蓝调。", loc:{name:"Lødingen lighthouse area", q:"Lødingen, Nordland, Norway"}},
+        {t:"19:30–20:30", z:"Europe/Oslo", icon:"🚶", h:"海边散步", d:""},
+        {t:"20:30–21:30", z:"Europe/Oslo", icon:"⛽", h:"（推荐）YX Lødingen 加满油", d:"Sjøveien 62，07:00–22:00；明早 7 点直接出发去机场还车。", badges:["必做"]}
+      ]
+    },
+    {
+      date: "2026-10-06", short: "10/6", wd: "周二", title: "还车 → 奥斯陆美术馆之夜", where: "Anker Hotel（Oslo）",
+      tzLabel: "挪威时间（UTC+2）", mode: "transit",
+      note: "MUNCH 周二开到 18:00，建议 17:00 前进馆；国家博物馆周二开到 20:00。两馆都可以网上买定时票，避免现场排队。",
+      items: [
+        {t:"06:30", z:"Europe/Oslo", icon:"🍳", h:"早餐", d:""},
+        {t:"07:00–08:15", z:"Europe/Oslo", icon:"🛣️", h:"驾车 Lødingen → EVE 机场", d:"约 72 km / 1h05–1h15。", loc:{name:"Harstad Narvik Airport Evenes", q:"Harstad Narvik Airport, Evenes, Norway"}},
+        {t:"08:15–09:00", z:"Europe/Oslo", icon:"🚗", h:"还车", d:"Hertz 预约 11:30 还车，可提前自助还；确认已加满油、无新增费用。", badges:["还车"]},
+        {t:"09:00–11:05", z:"Europe/Oslo", icon:"✈️", h:"EVE 值机 / 退税 / 免税", d:""},
+        {t:"11:05–12:50", z:"Europe/Oslo", icon:"✈️", h:"DY363 EVE → 奥斯陆", d:"13:45 前后出机场。"},
+        {t:"13:45–14:30", z:"Europe/Oslo", icon:"🚆", h:"机场快线/火车到市区", d:"FLY1 / R12 等约 35–40 分钟；Anker Hotel 在 Storgata 55。"},
+        {t:"14:30–15:20", z:"Europe/Oslo", icon:"🏨", h:"Anker Hotel 入住", d:"+47 22 99 75 00。"},
+        {t:"15:20–17:15", z:"Europe/Oslo", icon:"🎟️", h:"MUNCH 蒙克美术馆", d:"周二 10:00–18:00；建议网上定时票，17:00 前入场；《呐喊》在这里。", badges:["建议提前购票"], loc:{name:"MUNCH Oslo", q:"MUNCH, Bjørvika, Oslo, Norway"}},
+        {t:"17:15–17:45", z:"Europe/Oslo", icon:"🏛️", h:"奥斯陆歌剧院", d:"MUNCH 隔壁，屋顶可走上去拍照。", loc:{name:"Oslo Opera House", q:"Oslo Opera House, Kirsten Flagstads plass 1, Oslo, Norway"}},
+        {t:"17:45–19:45", z:"Europe/Oslo", icon:"🎟️", h:"国家博物馆 Nasjonalmuseet", d:"周二 10:00–20:00；蒙克《呐喊》常设在此（注意与 MUNCH 的版本区别）。", badges:["建议提前购票"], loc:{name:"National Museum Oslo", q:"Nasjonalmuseet, Brygata 7, Oslo, Norway"}},
+        {t:"19:45–22:00", z:"Europe/Oslo", icon:"🛍️", h:"Oslo City 购物中心 / Normal Oslo", d:"买补给和伴手礼。", loc:{name:"Oslo City", q:"Oslo City shopping center, Oslo, Norway"}},
+        {t:"22:00", z:"Europe/Oslo", icon:"🏨", h:"回酒店", d:"明天中午的飞机，早点休息。"}
+      ]
+    },
+    {
+      date: "2026-10-07", short: "10/7", wd: "周三", title: "奥斯陆早餐 → 曼谷过夜航班", where: "机上（TG955）",
+      tzLabel: "挪威时间（UTC+2）至起飞；落地后为曼谷时间（UTC+7）", mode: "transit",
+      note: "TG955 已确认以 TG955 为准（原 TG995 作废）。",
+      items: [
+        {t:"07:45", z:"Europe/Oslo", icon:"🏨", h:"退房", d:""},
+        {t:"07:45–08:45", z:"Europe/Oslo", icon:"☕", h:"Fuglen Coffee 早餐", d:"Universitetsgata 2，07:30 开门，你排 7:45 正好。", loc:{name:"Fuglen Oslo", q:"Fuglen, Universitetsgata 2, 0164 Oslo, Norway"}},
+        {t:"08:45–09:45", z:"Europe/Oslo", icon:"🚶", h:"附近闲逛", d:"皇宫/公园一带或 Karl Johans gate。"},
+        {t:"09:45–10:00", z:"Europe/Oslo", icon:"🧳", h:"回酒店取行李", d:""},
+        {t:"10:00–10:45", z:"Europe/Oslo", icon:"🚆", h:"去奥斯陆机场", d:"Anker → Oslo S 步行约 15 分钟，机场快线约 20–25 分钟。"},
+        {t:"10:45–13:45", z:"Europe/Oslo", icon:"✈️", h:"值机 / 退税 / 免税", d:"13:45 起飞前完成。"},
+        {t:"13:45 →", z:"Europe/Oslo", icon:"✈️", h:"TG955 奥斯陆 → 曼谷", d:"次日 06:15 抵达；行李直挂到上海。机上过夜，带颈枕和外套。"},
+        {t:"20:00", z:"Asia/Bangkok", icon:"🍱", h:"机上晚餐时间", d:"按航班安排用餐/睡觉。"}
+      ]
+    },
+    {
+      date: "2026-10-08", short: "10/8", wd: "周四", title: "曼谷中转 → 回上海", where: "回到上海",
+      tzLabel: "曼谷时间（UTC+7）；落地上海后为北京时间（UTC+8）", mode: null,
+      note: "",
+      items: [
+        {t:"06:15", z:"Asia/Bangkok", icon:"🛬", h:"抵达曼谷素万那普", d:"06:15 落地，约 07:00 前下机。"},
+        {t:"07:00–09:00", z:"Asia/Bangkok", icon:"🛋️", h:"贵宾厅休息", d:"洗澡、充电、吃早餐。"},
+        {t:"09:00–10:00", z:"Asia/Bangkok", icon:"🍧", h:"After You 刨冰甜点", d:"曼谷网红蜜糖吐司/刨冰，中转最后的甜头。"},
+        {t:"10:00–10:45", z:"Asia/Bangkok", icon:"🚶", h:"前往登机口", d:""},
+        {t:"10:45–16:00", z:"Asia/Bangkok", icon:"✈️", h:"TG664 曼谷 → 上海浦东 T2", d:"预计 17:30 前后出机场，行程结束。"}
+      ]
+    }
+  ],
+  todos: [
+    {g:"出发前（9/26 前）", items:[
+      "联系 Hertz 中国 400 921 1138，确认中国驾照在挪威取车需要的文件（Hertz 邮件提示需国际驾照，但中国不签发联合国 IDP，必须确认接受原件+公证翻译还是其他形式），出发前办妥。",
+      "准备/打印：海钓 GetYourGuide 凭证、Havila 确认单、Hertz 订单；各酒店与机票确认 PDF 全部离线存手机（页面不出现任何确认号/证件号，凭证自己收好）。",
+      "核对护照有效期（覆盖返程后至少 6 个月）与申根签证入境次数/停留期；旅行保险单存手机。",
+      "Google Maps 离线下载：丹麦西兰岛/哥本哈根、挪威北部（希尔克内斯—特罗姆瑟—罗弗敦—奥斯陆）、曼谷。",
+      "下载并注册停车/支付 App：EasyPark 或 Vipps（罗弗敦海滩停车用）；绑好信用卡。",
+      "提前买/预约：MUNCH 定时票、国家博物馆定时票（可选）；Fjellheisen 往返票与当日运营确认；Andersgrotta 现场 12:30 购票（怕满可提前致电 Snow Resort Kirkenes +47 78 97 05 40）。",
+      "衣物：0–10°C 为主，北部夜间可到 -5°C；Reinebringen 用防滑登山鞋；极光夜带保温壶/暖宝宝。",
+      "两张不同银行的信用卡，少量挪威克朗备用（北欧几乎无现金）。",
+      "泰国机场贵宾厅（约 ¥350/人，可选）；曼谷 711 睡裤与小瓶漱口水（≤100ml）不必提前买。"
+    ]},
+    {g:"9/27", items:[
+      "出哥本哈根先到 P7A Sixty 付费寄存行李。",
+      "按寄存完成时间决定 Plan A / Plan B。",
+      "联系 Clarion Hotel Oslo Airport（+47 63 94 94 94）告知 22:30 后入住。"
+    ]},
+    {g:"9/28", items:[
+      "12:30 Andersgrotta 导览（现场购票或提前确认）。",
+      "16:00 后可入住 Scandic Kirkenes。",
+      "若天气好走 Prestefjellet 日落方案：17:00 前出发，18:00 前下山（日落约 17:47）。",
+      "晚餐去 Aurora Restobar / Surf & Turf / Ritz，不去 Shanghai 餐厅。"
+    ]},
+    {g:"9/29–9/30", items:[
+      "9/29 12:15 前完成 Havila 登船（带护照+信用卡+确认单）。",
+      "上船后马上预约“帝王蟹”晚餐时段。",
+      "9/30 05:45 下船集合北角团；23:45 到特罗姆瑟后步行 6 分钟入住 Skaret by Vander。"
+    ]},
+    {g:"10/1", items:[
+      "09:45 前到 Front Pier，出示海钓凭证。",
+      "查 Fjellheisen 当日运营并提前买往返票。",
+      "日落约 18:08，18:20 前下山；晚上看极光注意保暖。"
+    ]},
+    {g:"10/2 起（自驾段）", items:[
+      "10/2：Hertz 18:30 取车；开 EVE→Svolvær 按 2h20–2h25 估算；KIWI Osan 23:00 关。",
+      "随时确认油箱：EVE 附近 Circle K Evenes（Bedringens vei 1，24h）、Svolvær Circle K（Repslagergata 16，约至午夜）、Lødingen YX（Sjøveien 62，07:00–22:00）。",
+      "海滩停车：Haukland/Uttakleiv/Reine Ytre Havn 均为付费，先装 EasyPark/Vipps。",
+      "10/4 Reinebringen 前一晚查官方开放状态与天气；停车场只用 Reine Ytre Havn。",
+      "10/5 晚在 Lødingen YX 加满油，10/6 一早 9:00 前还车。"
+    ]},
+    {g:"10/6–10/8", items:[
+      "MUNCH 17:00 前入场；国家博物馆 20:00 关。",
+      "10/7 以 TG955 为准：13:45 奥斯陆起飞。",
+      "10/8 曼谷 10:45 TG664 回上海。"
+    ]}
+  ],
+  tips: [
+    {t:"时区：为什么不会算错", body:"丹麦/挪威 2026 年 9–10 月使用欧洲中部夏令时 UTC+2；曼谷 UTC+7；中国 UTC+8。本页每个时刻都带时区锚点，“此刻关注”按你设备当前时区实时换算，倒计时直接按绝对时间计算。飞到新时区后，以当地时间为准即可，页面会自动跟着对。", ul:[]},
+    {t:"凭证要带/打印什么", body:"必须出示：海钓凭证（供应商看）、Havila 确认单（登船）、Hertz 订单（取车）、护照与信用卡。建议打印一份放在随身包里，同时手机离线存 PDF。确认号、证件号、房间号没有写进这个公开页面。", ul:[]},
+    {t:"邮轮登船", body:"Havila：Kirkenes 码头 09:00 开放登船办理，最晚 12:15 前完成，12:30 离港；要带护照（或申根官方身份证）+ 信用卡。9/30 到 Tromsø 是 23:45，Skaret by Vander 已安排晚入住。", ul:[]},
+    {t:"罗弗敦自驾：加油", body:["取车后 / 还车前节点：Circle K Evenes（Bedringens vei 1, 8536，24 小时，机场附近）；Svolvær Circle K（Repslagergata 16，周一–周五约 06:30–24:00、周末 08:00–24:00）；Lødingen YX（Sjøveien 62，07:00–22:00，就在民宿同一条路上）。", "建议：10/2 到 Svolvær 前别指望中途加油；10/5 晚在 Lødingen YX 加满，10/6 早上直接还车。"]},
+    {t:"罗弗敦自驾：停车与收费", body:["Reinebringen：只停 Reine Ytre Havn 付费停车场（EasyPark/信用卡，约 40 NOK/小时）；E10 隧道口路边停车罚 900 NOK。", "Hauklandstranda：大型付费停车场，EasyPark/Vipps，约 80 NOK/3h、110 NOK/4h，前 20 分钟免费（以现场牌为准）。", "Uttakleiv：自动车牌识别，约 60 NOK/3h，无票机。", "Leknes/Svolvær 超市、码头按各自标牌；付款多支持 App，准备好 EasyPark/Vipps 或信用卡。"]},
+    {t:"闭馆日与预约风险", body:["Andersgrotta：每日 12:30 固定一场，350 NOK/人，周一开放。", "Grenselandmuseet（边境博物馆）：每日 09:00–15:00（6/20–8/20 到 17:00），公众假日闭馆；9/28 周一开放。", "MUNCH：10/6 周二 10:00–18:00，建议定时票，17:00 前入场。", "国家博物馆：10/6 周二 10:00–20:00，建议定时票。", "Fjellheisen：缆车每 30 分钟一班、通常运营到午夜，出发前查当日票与天气。"]},
+    {t:"天黑与开车", body:"9 月底–10 月初北部日落很早：Kirkenes 9/28 约 17:47、Tromsø 10/1 约 18:08、罗弗敦 10/3–5 约 18:30–18:40。山路（E10、Nappstraum 隧道一带）十月可能遇初雪或黑冰，四驱油车也要留足缓冲；尽量避免日落后开陌生山路。罗弗敦路窄，注意会车与路边羊/驼鹿。", ul:[]},
+    {t:"付款与应急", body:["挪威/丹麦基本无现金，刷卡或 App 为主；Hertz 预授权约 200 美元，建议用非预付费的真信用卡。", "应急电话：挪威 112（警察）/113（急救）/110（火警），丹麦 112；各国使领馆电话出发前存好。"]},
+    {t:"离线使用", body:"本页是单个 HTML：在手机浏览器“保存网页/下载页面”保存后即可完全离线打开。只有点 Google 地图导航、查当日运营或天气时需要联网。", ul:[]}
+  ]
+};
+</script>
+
+<script>
+(function(){
+  "use strict";
+  const D = window.TRIP_DATA;
+  const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+  /* ---------- time helpers ---------- */
+  function tzOffsetMs(date, timeZone){
+    const dtf = new Intl.DateTimeFormat("en-US", {timeZone, year:"numeric", month:"2-digit", day:"2-digit", hour:"2-digit", minute:"2-digit", second:"2-digit", hour12:false});
+    const parts = {};
+    for(const p of dtf.formatToParts(date)) if(p.type!=="literal") parts[p.type]=p.value;
+    const h = parts.hour==="24"?0:+parts.hour;
+    const asUTC = Date.UTC(+parts.year, +parts.month-1, +parts.day, h, +parts.minute, +parts.second);
+    return asUTC - date.getTime();
+  }
+  function zonedToUTC(localISO, timeZone){
+    const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})(?::(\d{2}))?$/.exec(localISO);
+    if(!m) return new Date(NaN);
+    let guess = Date.UTC(+m[1], +m[2]-1, +m[3], +m[4], +m[5], +(m[6]||0));
+    const off1 = tzOffsetMs(new Date(guess), timeZone);
+    const guess2 = guess - off1;
+    const off2 = tzOffsetMs(new Date(guess2), timeZone);
+    return new Date(guess2 - (off1===off2?0:off2));
+  }
+  function timeIn(abs, timeZone){
+    try{ return new Intl.DateTimeFormat("zh-CN",{timeZone, hour:"2-digit", minute:"2-digit", hour12:false}).format(abs); }
+    catch(e){ return ""; }
+  }
+  const userTz = (Intl.DateTimeFormat().resolvedOptions().timeZone) || "Asia/Shanghai";
+
+  /* ---------- day data index ---------- */
+  const days = D.days.map(day => {
+    const color = D.colors[day.date] || "#0e7490";
+    const items = day.items.map(it => {
+      const on = it.od || day.date;
+      let start = null, startAbs = null;
+      const tm = it.t ? /^(\d{1,2}):(\d{2})/.exec(it.t) : null;
+      if(tm){
+        const iso = on + "T" + tm[1].padStart(2,"0") + ":" + tm[2] + ":00";
+        start = iso;
+        startAbs = zonedToUTC(iso, it.z || day.tz);
+      }
+      return Object.assign({}, it, {color, day, on, start, startAbs});
+    });
+    return Object.assign({}, day, {color, items});
+  });
+
+  function collectStops(day){
+    const seen = [], out = [];
+    const push = q => { if(q && !seen.includes(q)){ seen.push(q); out.push(q); } };
+    for(const it of day.items){
+      if(Array.isArray(it.route)) it.route.forEach(push);
+      else if(it.loc && it.loc.q) push(it.loc.q);
+    }
+    return out.slice(0, 12);
+  }
+  function dirUrl(stops, mode){
+    if(!stops || !stops.length) return "#";
+    const enc = encodeURIComponent;
+    const m = mode==="driving"?"driving":mode==="transit"?"transit":"walking";
+    if(stops.length===1) return "https://www.google.com/maps/dir/?api=1&destination="+enc(stops[0])+"&travelmode="+m;
+    return "https://www.google.com/maps/dir/?api=1&origin="+enc(stops[0])+
+      "&destination="+enc(stops[stops.length-1])+
+      "&waypoints="+enc(stops.slice(1,-1).join("|"))+"&travelmode="+m;
+  }
+
+  /* ---------- countdown / now card ---------- */
+  const tripStart = zonedToUTC(D.trip.start, D.trip.startTz);
+  const tripEnd = zonedToUTC(D.trip.end, D.trip.endTz);
+  function allTimed(){
+    const arr = [];
+    for(const day of days) for(const it of day.items){
+      if(it.startAbs && !isNaN(it.startAbs)) arr.push(it);
+    }
+    return arr;
+  }
+  function pad2(n){ return String(n).padStart(2,"0"); }
+  function fmtDate(abs, tz){
+    return new Intl.DateTimeFormat("zh-CN",{timeZone:tz, month:"long", day:"numeric", weekday:"short", hour:"2-digit", minute:"2-digit", hour12:false}).format(abs);
+  }
+  function tickNow(){
+    const now = new Date();
+    const clock = document.getElementById("clockNow");
+    const zone = document.getElementById("clockZone");
+    if(clock) clock.textContent = fmtDate(now, userTz);
+    if(zone) zone.textContent = "你的时区 " + userTz + (timeIn(now,userTz)?"":"");
+    const events = allTimed().filter(e=>!isNaN(e.startAbs)).sort((a,b)=>a.startAbs-b.startAbs);
+    const upcoming = events.find(e => e.startAbs > now);
+    const current = events.slice().reverse().find(e => e.startAbs <= now);
+    const title = document.getElementById("nowTitle");
+    const sub = document.getElementById("nowSub");
+    const status = document.getElementById("nowStatus");
+    if(now > tripEnd){
+      if(title) title.textContent = "旅行已结束，平安到家 🏡";
+      if(sub) sub.textContent = "TG664 已于 10/8 16:00 落地上海浦东 T2";
+      if(status) status.textContent = "已完成";
+      setCD(null);
+      return;
+    }
+    let target = upcoming ? upcoming.startAbs : tripEnd;
+    if(current){
+      if(title) title.textContent = "正在进行 · " + current.h;
+      if(sub) sub.textContent = "第" + (days.indexOf(current.day)+1) + "天 · " + current.day.short + " " + current.day.wd + " · " + (current.z||"") ;
+      if(status) status.textContent = upcoming ? "距下一节点" : "今天最后一项";
+    } else {
+      if(now < tripStart){
+        if(title) title.textContent = "倒计时 · 出发去浦东机场";
+        if(sub) sub.textContent = "9/26 周六 · 建议 16:00 前到上海浦东 T2";
+        if(status) status.textContent = "距出发还有";
+      } else {
+        if(title) title.textContent = upcoming ? "下一项 · " + upcoming.h : "旅程进行中";
+        if(sub && upcoming) sub.textContent = "第" + (days.indexOf(upcoming.day)+1) + "天 · " + upcoming.day.short + " " + upcoming.day.wd + " · " + (upcoming.z||"");
+        if(status) status.textContent = upcoming ? "倒计时" : "—";
+      }
+    }
+    setCD(target);
+  }
+  function setCD(target){
+    const els = {d:document.getElementById("cdD"), h:document.getElementById("cdH"), m:document.getElementById("cdM"), s:document.getElementById("cdS")};
+    if(!target){ for(const k in els) if(els[k]) els[k].textContent = "00"; return; }
+    const show = () => {
+      let diff = Math.max(0, target - Date.now());
+      const d = Math.floor(diff/86400000); diff-=d*86400000;
+      const h = Math.floor(diff/3600000); diff-=h*3600000;
+      const m = Math.floor(diff/60000); diff-=m*60000;
+      const s = Math.floor(diff/1000);
+      if(els.d) els.d.textContent = pad2(d);
+      if(els.h) els.h.textContent = pad2(h);
+      if(els.m) els.m.textContent = pad2(m);
+      if(els.s) els.s.textContent = pad2(s);
+    };
+    show();
+  }
+
+  /* ---------- overview map ---------- */
+  function decorateMap(){
+    document.querySelectorAll(".rv").forEach(p=>{
+      const c = p.getAttribute("data-c") || "#666";
+      p.setAttribute("stroke", c);
+      p.setAttribute("fill", "none");
+      p.setAttribute("stroke-width", p.classList.contains("air") ? 2.2 : 3.2);
+      p.setAttribute("stroke-linecap", "round");
+      p.setAttribute("stroke-dasharray", p.classList.contains("air") ? "7 6" : "1 0");
+      if(!p.classList.contains("air")) p.setAttribute("opacity", .92);
+    });
+    const cities = [
+      {id:"cph", x:280, y:607, label:"哥本哈根", night:false},
+      {id:"osl", x:232, y:452, label:"奥斯陆", night:true},
+      {id:"kkn", x:742, y:91, label:"希尔克内斯", night:true},
+      {id:"north", x:634, y:45, label:"北角", night:false},
+      {id:"hamm", x:574, y:57, label:"哈默菲斯特", night:false},
+      {id:"tos", x:449, y:94, label:"特罗姆瑟", night:true},
+      {id:"eve", x:389, y:137, label:"EVE 机场", night:false},
+      {id:"svo", x:332, y:146, label:"Svolvær", night:true},
+      {id:"lod", x:370, y:141, label:"Lødingen", night:true},
+      {id:"kvn", x:307, y:151, label:"Kvanndalen", night:true},
+      {id:"rei", x:293, y:160, label:"Reine / Å", night:false}
+    ];
+    const gDots = document.querySelector("#overview .city-dots");
+    const gLab = document.querySelector("#overview .labels");
+    const gNight = document.querySelector("#overview .nights");
+    cities.forEach(c=>{
+      const g = document.createElementNS("http://www.w3.org/2000/svg","g");
+      if(c.night){
+        const home = "M"+(c.x-9)+" "+c.y+" l9 -8 l9 8 v7 h-18 z";
+        const p = document.createElementNS("http://www.w3.org/2000/svg","path");
+        p.setAttribute("d", home); p.setAttribute("fill","var(--card)"); p.setAttribute("stroke","var(--accent2)"); p.setAttribute("stroke-width","1.7");
+        g.appendChild(p);
+      } else {
+        const c1 = document.createElementNS("http://www.w3.org/2000/svg","circle");
+        c1.setAttribute("cx",c.x); c1.setAttribute("cy",c.y); c1.setAttribute("r",7.5);
+        c1.setAttribute("fill","var(--card)"); c1.setAttribute("stroke","var(--ink-soft)"); c1.setAttribute("stroke-width","1.6");
+        const c2 = document.createElementNS("http://www.w3.org/2000/svg","circle");
+        c2.setAttribute("cx",c.x); c2.setAttribute("cy",c.y); c2.setAttribute("r",3);
+        c2.setAttribute("fill","var(--ink-soft)");
+        g.appendChild(c1); g.appendChild(c2);
+      }
+      gDots.appendChild(g);
+      const t = document.createElementNS("http://www.w3.org/2000/svg","text");
+      t.setAttribute("x",c.x); t.setAttribute("y",c.y + (c.night?22:-16));
+      t.setAttribute("text-anchor","middle"); t.setAttribute("fill","var(--ink-soft)");
+      t.textContent = c.label;
+      gLab.appendChild(t);
+    });
+    const leg = document.getElementById("mapLegend");
+    if(leg){
+      days.forEach(d=>{
+        const s=document.createElement("span");
+        s.innerHTML = "<i style='background:"+d.color+"'></i>"+d.short+" "+d.wd+" "+esc(d.title);
+        leg.appendChild(s);
+      });
+    }
+  }
+
+  /* ---------- render bookings ---------- */
+  function renderBookings(){
+    const box = document.getElementById("bookings");
+    if(!box) return;
+    let h = "<h3 style='margin:0 0 8px'>✈️ 机票</h3>";
+    h += "<div style='overflow-x:auto'><table><thead><tr><th>航班</th><th>路线</th><th>时间</th><th>备注</th></tr></thead><tbody>";
+    D.flights.forEach(f=>{
+      h += "<tr><td><b>"+esc(f.code)+"</b><br><small>"+esc(f.tz)+"</small></td><td>"+esc(f.route)+"</td><td class='time'><b>"+esc(f.when)+"</b></td><td>"+esc(f.note)+"</td></tr>";
+    });
+    h += "</tbody></table></div>";
+    h += "<h3 style='margin:16px 0 8px'>🚗 租车</h3><div class='book-card'>";
+    h += "<h3>"+esc(D.car.title)+"</h3><dl class='kv'><dt>取车</dt><dd>"+esc(D.car.pickup)+"</dd><dt>还车</dt><dd>"+esc(D.car.drop)+"</dd><dt>车型</dt><dd>"+esc(D.car.car)+"</dd><dt>油/里程</dt><dd>"+esc(D.car.fuel)+" · "+esc(D.car.include)+"</dd><dt>费用与证件</dt><dd>"+esc(D.car.pay)+"</dd><dt>客服</dt><dd>"+esc(D.car.phone)+"</dd></dl></div>";
+    h += "<h3 style='margin:16px 0 8px'>🚢 邮轮</h3><div class='book-card'>";
+    h += "<h3>"+esc(D.cruise.title)+"</h3><dl class='kv'><dt>航程</dt><dd>"+esc(D.cruise.when)+"</dd><dt>舱位</dt><dd>"+esc(D.cruise.cabin)+"</dd><dt>岸上团</dt><dd>"+esc(D.cruise.excursion)+"</dd><dt>码头</dt><dd>"+esc(D.cruise.terminal)+"</dd><dt>登船</dt><dd>"+esc(D.cruise.checkin)+"</dd><dt>客服</dt><dd>"+esc(D.cruise.phone)+"</dd></dl></div>";
+    h += "<h3 style='margin:16px 0 8px'>🎣 海钓</h3><div class='book-card'>";
+    h += "<h3>"+esc(D.fishing.title)+"</h3><dl class='kv'><dt>时间</dt><dd>"+esc(D.fishing.when)+"</dd><dt>集合</dt><dd>"+esc(D.fishing.meet)+"</dd><dt>地点</dt><dd>"+esc(D.fishing.where)+"</dd><dt>供应商</dt><dd>"+esc(D.fishing.provider)+"</dd><dt>备注</dt><dd>"+esc(D.fishing.note)+"</dd></dl></div>";
+    h += "<h3 style='margin:18px 0 8px'>🏨 酒店 / 民宿</h3><div class='grid c2'>";
+    D.hotels.forEach(ht=>{
+      h += "<div class='book-card'><h3><span>"+esc(ht.name)+"</span><span class='tag gold'>"+esc(ht.d)+"</span></h3>";
+      h += "<div class='muted' style='font-size:12.5px'>"+esc(ht.addr)+"</div><div style='font-size:13px'>☎ "+esc(ht.tel)+"</div>";
+      h += "<div style='font-size:12.5px;color:var(--ink-soft)'>"+esc(ht.note)+"</div></div>";
+    });
+    h += "</div>";
+    box.innerHTML = h;
+  }
+
+  /* ---------- render days ---------- */
+  function routeSVG(stops, color){
+    const n = stops.length;
+    if(!n) return "";
+    const w = 560, h = 150;
+    if(n===1){
+      return "<svg class='route-svg' viewBox='0 0 "+w+" "+h+"'><circle cx='280' cy='75' r='14' fill='"+color+"'/><text x='280' y='80' text-anchor='middle' fill='#fff' font-size='13'>1</text></svg>";
+    }
+    const pts = stops.map((s,i)=>{
+      const x = n===1 ? 280 : 38 + i*((w-76)/(n-1));
+      const y = (i%2 ? 112 : 38);
+      return {x,y};
+    });
+    let d = "M"+pts[0].x+" "+pts[0].y;
+    for(let i=1;i<pts.length;i++){
+      const p0=pts[i-1], p1=pts[i];
+      const mx=(p0.x+p1.x)/2;
+      d += " C "+mx+" "+p0.y+", "+mx+" "+p1.y+", "+p1.x+" "+p1.y;
+    }
+    let s = "<svg class='route-svg' viewBox='0 0 "+w+" "+h+"'>";
+    s += "<path d='"+d+"' fill='none' stroke='"+color+"' stroke-width='2.6' stroke-linecap='round' opacity='.75'/>";
+    pts.forEach((p,i)=>{
+      s += "<circle cx='"+p.x+"' cy='"+p.y+"' r='13' fill='"+color+"' stroke='var(--card)' stroke-width='2'/>";
+      s += "<text x='"+p.x+"' y='"+p.y+"' text-anchor='middle' dy='4.5' fill='#fff' font-size='12' font-weight='600'>"+(i+1)+"</text>";
+    });
+    s += "</svg>";
+    return s;
+  }
+  function stopChips(stops){
+    const cn = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫"];
+    return stops.map((q,i)=>{
+      const name = q.split(",")[0];
+      return "<span class='tag'>"+cn[i]+" "+esc(name)+"</span>";
+    }).join(" ");
+  }
+  function itemMeta(it){
+    if(!it.startAbs || isNaN(it.startAbs) || !it.z) return "";
+    if(userTz === it.z) return "";
+    const lt = timeIn(it.startAbs, userTz);
+    return lt ? "<small>你的时区 " + lt + "</small>" : "";
+  }
+  function renderDays(){
+    const host = document.getElementById("daylist");
+    if(!host) return;
+    let html = "";
+    days.forEach((day, di)=>{
+      const stops = Array.isArray(day.topRoute) ? day.topRoute : collectStops(day);
+      const hasPlans = day.items.some(it => Array.isArray(it.route)) && !Array.isArray(day.topRoute);
+      const modeLabel = day.mode==="driving"?"开车":day.mode==="transit"?"公交/步行":"步行";
+      html += "<article class='day' style='--accent:"+day.color+"' id='day-"+di+"'>";
+      html += "<div class='day-head'><div class='day-title'><span class='dnum'>DAY "+(di+1)+" · "+day.short+" "+day.wd+"</span><span class='tag'>"+esc(day.where)+"</span></div>";
+      html += "<h3>"+esc(day.title)+"</h3><div class='tz-note'>🕐 "+esc(day.tzLabel)+"</div>";
+      if(day.note) html += "<div class='note'>"+esc(day.note)+"</div>";
+      html += "</div>";
+      if(day.mode && !hasPlans && stops.length){
+        html += "<details class='route'><summary>当日路线 · "+stops.length+" 站（示意）"+ (day.mode?" · "+modeLabel:"") +"</summary>";
+        html += "<div class='route-body'>"+routeSVG(stops, day.color);
+        html += "<div style='margin:8px 0' class='roomie'>"+stopChips(stops)+"</div>";
+        html += "<a class='route-nav' target='_blank' rel='noopener' href='"+dirUrl(stops, day.mode)+"'>一键按顺序导航（Google 地图）</a>";
+        html += "</div></details>";
+      }
+      html += "<ul class='tl'>";
+      day.items.forEach(it=>{
+        const timeCell = it.t ? "<div class='time'><b>"+esc(it.t)+"</b>"+itemMeta(it)+"</div>" : "<div class='time'><small>"+esc(it.icon||"")+"</small></div>";
+        let badges = "";
+        if(it.badges) badges = "<div class='badges'>"+it.badges.map(b=>{
+          const cls = b.includes("凭证")||b.includes("证件")?"doc":(b.includes("预约")||b.includes("购票")||b.includes("固定")||b.includes("付费")||b.includes("必做"))?"book":(b.includes("修正")||b.includes("约")||b.includes("量力"))?"risk":"";
+          return "<span class='badge "+cls+"'>"+esc(b)+"</span>";
+        }).join("")+"</div>";
+        let routeHTML = "";
+        if(Array.isArray(it.route)){
+          const stops2 = it.route.slice(0,10);
+          routeHTML = "<details class='route' style='margin:9px 0 0'><summary>本方案路线 · "+stops2.length+" 站</summary><div class='route-body'>"+routeSVG(stops2, day.color)+"<div style='margin:8px 0' class='roomie'>"+stopChips(stops2)+"</div><a class='route-nav' target='_blank' rel='noopener' href='"+dirUrl(stops2, day.mode||"walking")+"'>按此方案导航</a></div></details>";
+        }
+        const locHTML = it.loc ? " <a class='locbtn' target='_blank' rel='noopener' href='"+dirUrl([it.loc.q], day.mode||"walking")+"'>"+esc(it.loc.name)+"</a>" : "";
+        html += "<li>";
+        html += timeCell;
+        html += "<div class='evt'><div class='head'>"+(it.icon?it.icon+" ":"")+esc(it.h)+"</div>";
+        if(it.d) html += "<div class='desc'>"+esc(it.d)+"</div>";
+        html += badges + locHTML + routeHTML;
+        html += "</div></li>";
+      });
+      html += "</ul></article>";
+    });
+    host.innerHTML = html;
+  }
+
+  /* ---------- todos / tips ---------- */
+  function renderTodos(){
+    const host = document.getElementById("todos");
+    if(!host) return;
+    let h = "";
+    D.todos.forEach(g=>{
+      h += "<div class='todo-group'><h3>📌 "+esc(g.g)+"</h3><ul>"+g.items.map(i=>"<li>"+esc(i)+"</li>").join("")+"</ul></div>";
+    });
+    host.innerHTML = h;
+  }
+  function renderTips(){
+    const host = document.getElementById("tips");
+    if(!host) return;
+    let h = "";
+    D.tips.forEach(t=>{
+      h += "<details class='tip-card'><summary>"+esc(t.t)+"</summary><div class='tip-body'>";
+      if(t.ul && t.ul.length) h += "<ul>"+t.ul.map(i=>"<li>"+esc(i)+"</li>").join("")+"</ul>";
+      else h += "<p style='margin:6px 0'>"+esc(t.body)+"</p>";
+      h += "</div></details>";
+    });
+    host.innerHTML = h;
+  }
+
+  /* ---------- theme ---------- */
+  function themeLabel(mode){
+    const b = document.getElementById("themeBtn");
+    if(!b) return;
+    if(mode==="night") b.textContent = "☀️ 日间";
+    else if(mode==="day") b.textContent = "🌙 夜间";
+    else b.textContent = "🌓 跟随系统";
+  }
+  function applyTheme(){
+    const m = document.documentElement.getAttribute("data-theme");
+    themeLabel(m);
+  }
+  function initTheme(){
+    const b = document.getElementById("themeBtn");
+    if(!b) return;
+    const order = [null,"night","day"];
+    let idx = 0;
+    b.addEventListener("click", ()=>{
+      const cur = document.documentElement.getAttribute("data-theme");
+      idx = order.indexOf(cur)+1; if(idx>=order.length) idx=0;
+      const next = order[idx];
+      if(next) document.documentElement.setAttribute("data-theme", next);
+      else document.documentElement.removeAttribute("data-theme");
+      applyTheme();
+      decorateMap(); // refresh SVG colors for current vars
+    });
+    applyTheme();
+  }
+
+  /* ---------- boot ---------- */
+  initTheme();
+  decorateMap();
+  renderBookings();
+  renderDays();
+  renderTodos();
+  renderTips();
+  tickNow();
+  setInterval(tickNow, 1000);
+})();
+</script>
+
+</body>
+</html>

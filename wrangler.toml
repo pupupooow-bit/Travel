@@ -1,0 +1,9 @@
+name = "denmark-norway-trip"
+main = "src/index.js"
+compatibility_date = "2026-09-06"
+workers_dev = true
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "none"

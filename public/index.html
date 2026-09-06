@@ -139,6 +139,12 @@ details.route[open] summary{border-bottom:1px dashed var(--line)}
 .route-nav{display:inline-flex;align-items:center;gap:7px;margin-top:10px;background:var(--accent);color:#fff;border:0;border-radius:12px;padding:9px 15px;font-size:14px;text-decoration:none}
 .route-nav:active{transform:scale(.98)}
 svg.route-svg{width:100%;height:auto;display:block}
+.plan-sched{margin:9px 0 0;border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--card2)}
+.plan-sched .ps-row{display:grid;grid-template-columns:104px 1fr;gap:6px 10px;padding:7px 11px;border-top:1px dashed var(--line);font-size:13px}
+.plan-sched .ps-row:first-child{border-top:0}
+.plan-sched .ps-t{font-variant-numeric:tabular-nums;font-weight:650;white-space:nowrap}
+.plan-sched .ps-x{color:var(--ink-soft)}
+@media(max-width:620px){.plan-sched .ps-row{grid-template-columns:92px 1fr}}
 .plan-alt{background:var(--card2);border:1px solid var(--line);border-radius:14px;margin:12px 16px;padding:12px 14px}
 .plan-alt h4{margin:0 0 8px;font-size:14px;display:flex;align-items:center;gap:7px}
 .plan-alt ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink-soft)}
@@ -357,14 +363,50 @@ window.TRIP_DATA = {
     {
       date: "2026-09-27", short: "9/27", wd: "周日", title: "哥本哈根一日 + 夜飞奥斯陆", where: "Clarion Hotel Oslo Airport",
       tzLabel: "凌晨用曼谷时间；进入丹麦后全部用哥本哈根时间（UTC+2）；晚间奥斯陆同用 UTC+2", mode: "walking",
-      note: "哥本哈根只有约 7.5 小时，寄存行李的完成时间决定选 Plan A 还是 Plan B，不要贪多。",
+      note: "两案都必须在 17:30 前回到哥本哈根机场：T2 与 T3 室内步行约 5 分钟互通，地铁统一停 T3，再从 T3 走到 T2 值机。寄存完成时间决定选案：约 11:00 完成走 Plan A（不登宫），约 10:00 完成走 Plan B（登克里斯蒂安堡宫顶）。",
       items: [
         {t:"01:10–07:40", z:"Asia/Bangkok", icon:"✈️", h:"TG950 曼谷 → 哥本哈根 T3", d:"预计 09:00 前后出机场；这是申根入境。"},
-        {t:"09:00", z:"Europe/Copenhagen", icon:"🧳", h:"取行李 → P7A Sixty 付费寄存", d:"你已确认 P7A 是付费寄存点；20:30 从 T2 起飞的 D83234 需重新托运，所以行李不能留在上一程。"},
-        {t:"10:00", z:"Europe/Copenhagen", icon:"🚇", h:"二选一：Plan A / Plan B", d:"寄存若 11:00 前搞定且不想登宫 → Plan A；若 10:00 前就能出发且想登克里斯蒂安堡宫 → Plan B。"},
-        {t:null, z:"Europe/Copenhagen", icon:"🗺️", h:"Plan A（约 3h45m，不登宫）", d:"克里斯蒂安堡宫外观 → 新港 → 腓特烈教堂 → Hart 咖啡/烘焙 → 吉菲昂喷泉 → 美人鱼雕像 → 卡斯特雷特 → April 餐食 → Strøget 步行街 → 回机场。", route:["Christiansborg Palace, Copenhagen, Denmark","Nyhavn, Copenhagen, Denmark","Frederik's Church, Copenhagen, Denmark","Hart Bageri Gammel Mønt 4, Copenhagen, Denmark","Gefion Fountain, Copenhagen, Denmark","The Little Mermaid, Copenhagen, Denmark","Kastellet, Copenhagen, Denmark","Strøget, Copenhagen, Denmark"]},
-        {t:null, z:"Europe/Copenhagen", icon:"🗺️", h:"Plan B（约 2h55m，含登宫）", d:"新港 → 腓特烈教堂 → Hart → 吉菲昂 → 美人鱼 → 卡斯特雷特 → 克里斯蒂安堡宫（约 13:10 入内）→ 回机场。", route:["Nyhavn, Copenhagen, Denmark","Frederik's Church, Copenhagen, Denmark","Hart Bageri Gammel Mønt 4, Copenhagen, Denmark","Gefion Fountain, Copenhagen, Denmark","The Little Mermaid, Copenhagen, Denmark","Kastellet, Copenhagen, Denmark","Christiansborg Palace, Copenhagen, Denmark"]},
-        {t:"17:20", z:"Europe/Copenhagen", icon:"🚌", h:"回到哥本哈根机场 T2", d:"路程约 30 分钟；机场 7-11 吃热狗当晚餐。"},
+        {t:"09:00", z:"Europe/Copenhagen", icon:"🧳", h:"取行李 → P7A 自助储物柜寄存", d:"P7A 在 T3 地铁旁，付费寄存（已确认）；20:30 从 T2 起飞的 D83234 需重新托运，行李不能留在上一程。"},
+        {t:null, z:"Europe/Copenhagen", icon:"🚇", h:"二选一：Plan A / Plan B", d:"以寄存完成时间为准：约 11:00 完成 → Plan A；约 10:00 完成 → Plan B。两案都要 17:30 前回机场。"},
+        {t:null, z:"Europe/Copenhagen", icon:"🗺️", h:"Plan A · 11:00 寄存完出发（不登宫）", d:"适合 11:00 前搞定寄存；全程按下方时刻走，别在每个点恋战。", schedule:[
+          {t:"11:00–11:30", h:"机场 → 克里斯蒂安堡宫", d:"地铁 M2（Vanløse 方向）到 Kongens Nytorv，约 21 分钟"},
+          {t:"11:30–11:40", h:"克里斯蒂安堡宫", d:"外观拍照约 10 分钟，不进殿"},
+          {t:"11:40–11:55", h:"步行前往新港", d:"Google 步行约 13 分钟"},
+          {t:"11:55–12:10", h:"新港 Nyhavn", d:"五彩运河老房子，必打卡，拍照"},
+          {t:"12:10–12:20", h:"步行前往腓特烈教堂", d:"约 10 分钟"},
+          {t:"12:20–12:30", h:"腓特烈教堂", d:"只拍照"},
+          {t:"12:30–12:33", h:"步行前往 Hart", d:"约 3 分钟"},
+          {t:"12:33–12:50", h:"Hart 咖啡/烘焙", d:"拍照+点餐，买完就走，预留排队"},
+          {t:"12:50–13:05", h:"步行前往吉菲昂喷泉", d:"约 15 分钟"},
+          {t:"13:05–13:10", h:"吉菲昂喷泉", d:"路过拍完就走"},
+          {t:"13:10–13:16", h:"步行前往美人鱼雕像", d:"约 6 分钟"},
+          {t:"13:16–13:20", h:"美人鱼雕像", d:"拍完就走"},
+          {t:"13:20–13:28", h:"步行前往卡斯特雷特", d:"约 8 分钟"},
+          {t:"13:28–13:50", h:"卡斯特雷特", d:"堡垒+教堂拍照，可小憩放空"},
+          {t:"13:50–14:15", h:"步行前往 April", d:"约 25 分钟"},
+          {t:"14:15–14:35", h:"April 餐食", d:"拍照+点餐，预留排队"},
+          {t:"14:35–14:44", h:"步行前往 Strøget", d:"约 9 分钟，与 Plan B 汇合"}
+        ], route:["Christiansborg Palace, Copenhagen, Denmark","Nyhavn, Copenhagen, Denmark","Frederik's Church, Copenhagen, Denmark","Hart Bageri Gammel Mønt 4, Copenhagen, Denmark","Gefion Fountain, Copenhagen, Denmark","The Little Mermaid, Copenhagen, Denmark","Kastellet, Copenhagen, Denmark","Strøget, Copenhagen, Denmark"]},
+        {t:null, z:"Europe/Copenhagen", icon:"🗺️", h:"Plan B · 10:00 寄存完出发（含登顶）", d:"适合 10:00 前搞定寄存、想登克里斯蒂安堡宫塔；路线反着走。", schedule:[
+          {t:"10:00–10:30", h:"机场 → 新港", d:"地铁 M2（Vanløse 方向）到 Kongens Nytorv，约 20 分钟"},
+          {t:"10:30–10:45", h:"新港 Nyhavn", d:"五彩运河老房子，必打卡，拍照"},
+          {t:"10:45–10:55", h:"步行前往腓特烈教堂", d:"约 10 分钟"},
+          {t:"10:55–11:05", h:"腓特烈教堂", d:"只拍照"},
+          {t:"11:05–11:08", h:"步行前往 Hart", d:"约 3 分钟"},
+          {t:"11:08–11:25", h:"Hart 咖啡/烘焙", d:"拍照+点餐，买完就走，预留排队"},
+          {t:"11:25–11:40", h:"步行前往吉菲昂喷泉", d:"约 15 分钟"},
+          {t:"11:40–11:45", h:"吉菲昂喷泉", d:"路过拍完就走"},
+          {t:"11:45–11:51", h:"步行前往美人鱼雕像", d:"约 6 分钟"},
+          {t:"11:51–11:55", h:"美人鱼雕像", d:"拍完就走"},
+          {t:"11:55–12:03", h:"步行前往卡斯特雷特", d:"约 8 分钟"},
+          {t:"12:03–12:25", h:"卡斯特雷特", d:"堡垒+教堂拍照"},
+          {t:"12:25–12:55", h:"步行前往克里斯蒂安堡宫", d:"约 30 分钟"},
+          {t:"12:55–13:55", h:"克里斯蒂安堡宫登顶", d:"登顶观光台拍照；登顶排队约 20 分钟，俯瞰全哥本哈根"},
+          {t:"13:55–14:05", h:"步行前往 April", d:"约 10 分钟"},
+          {t:"14:05–14:35", h:"April 餐食", d:"拍照+点餐，预留排队"},
+          {t:"14:35–14:44", h:"步行前往 Strøget", d:"约 9 分钟，与 Plan A 汇合"}
+        ], route:["Nyhavn, Copenhagen, Denmark","Frederik's Church, Copenhagen, Denmark","Hart Bageri Gammel Mønt 4, Copenhagen, Denmark","Gefion Fountain, Copenhagen, Denmark","The Little Mermaid, Copenhagen, Denmark","Kastellet, Copenhagen, Denmark","Christiansborg Palace, Copenhagen, Denmark"]},
+        {t:"17:20", z:"Europe/Copenhagen", icon:"🚌", h:"回到哥本哈根机场（17:30 前）", d:"T2/T3 室内步行约 5 分钟互通；机场 7-11 吃热狗当晚餐。", badges:["17:30 前到"]},
         {t:"20:30–21:40", z:"Europe/Copenhagen", icon:"✈️", h:"D83234 哥本哈根 T2 → 奥斯陆加勒穆恩", d:"行李需要重新托运，21:40 抵达。"},
         {t:"22:30", z:"Europe/Oslo", icon:"🏨", h:"公交 420/S44 或接驳车 → Clarion Hotel", d:"汉斯·高德斯韦 15 号；抵达晚，若仍担心可先电话 +47 63 94 94 94。", badges:["晚到"], loc:{name:"Clarion Hotel Oslo Airport", q:"Clarion Hotel Oslo Airport, Hans Gaarders veg 15, 2060 Gardermoen, Norway"}}
       ]
@@ -914,11 +956,17 @@ window.TRIP_DATA = {
           routeHTML = "<details class='route' style='margin:9px 0 0'><summary>本方案路线 · "+stops2.length+" 站</summary><div class='route-body'>"+routeSVG(stops2, day.color)+"<div style='margin:8px 0' class='roomie'>"+stopChips(stops2)+"</div><a class='route-nav' target='_blank' rel='noopener' href='"+dirUrl(stops2, day.mode||"walking")+"'>按此方案导航</a></div></details>";
         }
         const locHTML = it.loc ? " <a class='locbtn' target='_blank' rel='noopener' href='"+dirUrl([it.loc.q], day.mode||"walking")+"'>"+esc(it.loc.name)+"</a>" : "";
+        let schedHTML = "";
+        if(it.schedule){
+          schedHTML = "<div class='plan-sched'>"+it.schedule.map(s=>{
+            return "<div class='ps-row'><span class='ps-t'>"+esc(s.t)+"</span><span class='ps-x'><b>"+esc(s.h)+"</b>"+(s.d?" · "+esc(s.d):"")+"</span></div>";
+          }).join("")+"</div>";
+        }
         html += "<li>";
         html += timeCell;
         html += "<div class='evt'><div class='head'>"+(it.icon?it.icon+" ":"")+esc(it.h)+"</div>";
         if(it.d) html += "<div class='desc'>"+esc(it.d)+"</div>";
-        html += badges + locHTML + routeHTML;
+        html += badges + locHTML + schedHTML + routeHTML;
         html += "</div></li>";
       });
       html += "</ul></article>";

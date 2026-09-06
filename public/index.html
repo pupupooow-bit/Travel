@@ -124,9 +124,14 @@ details.bk-cat .bk-body{padding:2px 14px 14px;border-top:1px dashed var(--line)}
 details.bk-cat .bk-body h3{margin-top:12px}
 /* day timeline */
 .day{border:1px solid var(--line);border-left:5px solid var(--accent,#0e7490);border-radius:18px;background:var(--card);box-shadow:var(--shadow);margin:18px 0;overflow:hidden}
+details.day-open>summary{list-style:none;cursor:pointer}
+details.day-open>summary::-webkit-details-marker{display:none}
 .day-head{padding:15px 16px 11px;background:linear-gradient(180deg,var(--card2),transparent)}
 .day-title{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
 .day-title .dnum{font-size:13px;font-weight:700;letter-spacing:1px;color:var(--accent)}
+.day-chev{font-size:20px;font-weight:300;color:var(--ink-soft);line-height:1;transition:transform .2s;align-self:center}
+details.day-open[open] .day-chev{transform:rotate(45deg)}
+.day-open-body{border-top:1px dashed var(--line)}
 .day h3{font-size:clamp(17px,4vw,21px);margin:2px 0 0}
 .tz-note{margin-top:5px;font-size:12px;color:var(--ink-soft)}
 .tl{list-style:none;margin:0;padding:0}
@@ -996,10 +1001,11 @@ window.PLACE_LL = {"Shanghai Pudong International Airport Terminal 2, China":[31
       const hasPlans = day.items.some(it => Array.isArray(it.route)) && !Array.isArray(day.topRoute);
       const modeLabel = day.mode==="driving"?"开车":day.mode==="transit"?"公交/步行":"步行";
       html += "<article class='day' style='--accent:"+day.color+"' id='day-"+di+"'>";
-      html += "<div class='day-head'><div class='day-title'><span class='dnum'>DAY "+(di+1)+" · "+day.short+" "+day.wd+"</span><span class='tag'>"+esc(day.where)+"</span></div>";
-      html += "<h3>"+esc(day.title)+"</h3><div class='tz-note'>🕐 "+esc(day.tzLabel)+"</div>";
+      html += "<details class='day-open'>";
+      html += "<summary class='day-head'><div class='day-title'><span class='dnum'>DAY "+(di+1)+" · "+day.short+" "+day.wd+"</span><span class='tag'>"+esc(day.where)+"</span><span class='day-chev' aria-hidden='true'>＋</span></div>";
+      html += "<h3>"+esc(day.title)+"</h3></summary>";
+      html += "<div class='day-open-body'><div class='tz-note'>🕐 "+esc(day.tzLabel)+"</div>";
       if(day.note) html += "<div class='note'>"+esc(day.note)+"</div>";
-      html += "</div>";
       if(day.mode && !hasPlans && stops.length){
         html += "<details class='route'><summary>当日路线 · "+stops.length+" 站（地图）"+ (day.mode?" · "+modeLabel:"") +"</summary>";
         html += "<div class='route-body'>"+routeSVG(stops, day.color);
@@ -1035,7 +1041,7 @@ window.PLACE_LL = {"Shanghai Pudong International Airport Terminal 2, China":[31
         html += badges + locHTML + schedHTML + routeHTML;
         html += "</div></li>";
       });
-      html += "</ul></article>";
+      html += "</ul></div></details></article>";
     });
     host.innerHTML = html;
   }
@@ -1101,6 +1107,17 @@ window.PLACE_LL = {"Shanghai Pudong International Airport Terminal 2, China":[31
   renderTips();
   tickNow();
   setInterval(tickNow, 1000);
+  function openDayFromHash(){
+    const m = /^#day-(\d+)$/.exec(location.hash);
+    if(!m) return;
+    const d = document.querySelector("#day-"+m[1]+" .day-open");
+    if(d) d.open = true;
+  }
+  document.addEventListener("click", e => {
+    if(e.target.closest && e.target.closest("#mapLegend a")) setTimeout(openDayFromHash, 0);
+  });
+  window.addEventListener("hashchange", openDayFromHash);
+  openDayFromHash();
 })();
 </script>
 

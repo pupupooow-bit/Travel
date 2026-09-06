@@ -115,6 +115,13 @@ tr:last-child td{border-bottom:none}
 .kv dt{color:var(--ink-soft)}
 .kv dd{margin:0}
 .addr{cursor:pointer;color:var(--accent2);text-decoration:none;border-bottom:1px dashed currentColor}
+details.bk-cat{border:1px solid var(--line);border-radius:15px;background:var(--card2);margin:8px 0;overflow:hidden}
+details.bk-cat summary{cursor:pointer;padding:13px 15px;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details.bk-cat summary::-webkit-details-marker{display:none}
+details.bk-cat summary::after{content:"+";font-size:19px;color:var(--ink-soft);transition:transform .2s}
+details.bk-cat[open] summary::after{transform:rotate(45deg)}
+details.bk-cat .bk-body{padding:2px 14px 14px;border-top:1px dashed var(--line)}
+details.bk-cat .bk-body h3{margin-top:12px}
 /* day timeline */
 .day{border:1px solid var(--line);border-left:5px solid var(--accent,#0e7490);border-radius:18px;background:var(--card);box-shadow:var(--shadow);margin:18px 0;overflow:hidden}
 .day-head{padding:15px 16px 11px;background:linear-gradient(180deg,var(--card2),transparent)}
@@ -869,30 +876,33 @@ window.PLACE_LL = {"Shanghai Pudong International Airport Terminal 2, China":[31
   function renderBookings(){
     const box = document.getElementById("bookings");
     if(!box) return;
-    let h = "<h3 style='margin:0 0 8px'>✈️ 机票</h3>";
-    h += "<div style='overflow-x:auto'><table><thead><tr><th>航班</th><th>路线</th><th>时间</th><th>备注</th></tr></thead><tbody>";
+    const cat = (title, inner) => {
+      return "<details class='bk-cat'><summary>"+title+"</summary><div class='bk-body'>"+inner+"</div></details>";
+    };
+    let fl = "<div style='overflow-x:auto'><table><thead><tr><th>航班</th><th>路线</th><th>时间</th><th>备注</th></tr></thead><tbody>";
     D.flights.forEach(f=>{
-      h += "<tr><td><b>"+esc(f.code)+"</b><br><small>"+esc(f.tz)+"</small></td><td>"+esc(f.route)+"</td><td class='time'><b>"+esc(f.when)+"</b></td><td>"+esc(f.note)+"</td></tr>";
+      fl += "<tr><td><b>"+esc(f.code)+"</b><br><small>"+esc(f.tz)+"</small></td><td>"+esc(f.route)+"</td><td class='time'><b>"+esc(f.when)+"</b></td><td>"+esc(f.note)+"</td></tr>";
     });
-    h += "</tbody></table></div>";
-    h += "<h3 style='margin:16px 0 8px'>🚗 租车</h3><div class='book-card'>";
-    h += "<h3>"+esc(D.car.title)+"</h3><dl class='kv'><dt>取车</dt><dd>"+esc(D.car.pickup)+"</dd><dt>还车</dt><dd>"+esc(D.car.drop)+"</dd><dt>车型</dt><dd>"+esc(D.car.car)+"</dd><dt>油/里程</dt><dd>"+esc(D.car.fuel)+" · "+esc(D.car.include)+"</dd><dt>费用与证件</dt><dd>"+esc(D.car.pay)+"</dd><dt>客服</dt><dd>"+esc(D.car.phone)+"</dd></dl></div>";
-    h += "<h3 style='margin:16px 0 8px'>🚢 邮轮</h3><div class='book-card'>";
-    h += "<h3>"+esc(D.cruise.title)+"</h3><dl class='kv'><dt>航程</dt><dd>"+esc(D.cruise.when)+"</dd><dt>舱位</dt><dd>"+esc(D.cruise.cabin)+"</dd><dt>岸上团</dt><dd>"+esc(D.cruise.excursion)+"</dd><dt>码头</dt><dd>"+esc(D.cruise.terminal)+"</dd><dt>登船</dt><dd>"+esc(D.cruise.checkin)+"</dd><dt>客服</dt><dd>"+esc(D.cruise.phone)+"</dd></dl></div>";
-    h += "<h3 style='margin:16px 0 8px'>🎣 海钓</h3><div class='book-card'>";
-    h += "<h3>"+esc(D.fishing.title)+"</h3><dl class='kv'><dt>时间</dt><dd>"+esc(D.fishing.when)+"</dd><dt>集合</dt><dd>"+esc(D.fishing.meet)+"</dd><dt>地点</dt><dd>"+esc(D.fishing.where)+"</dd><dt>供应商</dt><dd>"+esc(D.fishing.provider)+"</dd><dt>备注</dt><dd>"+esc(D.fishing.note)+"</dd></dl></div>";
-    h += "<h3 style='margin:18px 0 8px'>🏨 酒店 / 民宿</h3><div class='grid c2'>";
+    fl += "</tbody></table></div>";
+    let car = "<div class='book-card'><h3>"+esc(D.car.title)+"</h3><dl class='kv'><dt>取车</dt><dd>"+esc(D.car.pickup)+"</dd><dt>还车</dt><dd>"+esc(D.car.drop)+"</dd><dt>车型</dt><dd>"+esc(D.car.car)+"</dd><dt>油/里程</dt><dd>"+esc(D.car.fuel)+" · "+esc(D.car.include)+"</dd><dt>费用与证件</dt><dd>"+esc(D.car.pay)+"</dd><dt>客服</dt><dd>"+esc(D.car.phone)+"</dd></dl></div>";
+    let cruise = "<div class='book-card'><h3>"+esc(D.cruise.title)+"</h3><dl class='kv'><dt>航程</dt><dd>"+esc(D.cruise.when)+"</dd><dt>舱位</dt><dd>"+esc(D.cruise.cabin)+"</dd><dt>岸上团</dt><dd>"+esc(D.cruise.excursion)+"</dd><dt>码头</dt><dd>"+esc(D.cruise.terminal)+"</dd><dt>登船</dt><dd>"+esc(D.cruise.checkin)+"</dd><dt>客服</dt><dd>"+esc(D.cruise.phone)+"</dd></dl></div>";
+    let fish = "<div class='book-card'><h3>"+esc(D.fishing.title)+"</h3><dl class='kv'><dt>时间</dt><dd>"+esc(D.fishing.when)+"</dd><dt>集合</dt><dd>"+esc(D.fishing.meet)+"</dd><dt>地点</dt><dd>"+esc(D.fishing.where)+"</dd><dt>供应商</dt><dd>"+esc(D.fishing.provider)+"</dd><dt>备注</dt><dd>"+esc(D.fishing.note)+"</dd></dl></div>";
+    let hot = "<div class='grid c2'>";
     D.hotels.forEach(ht=>{
       const hq = ht.name + ", " + ht.addr;
-      h += "<div class='book-card'>";
-      h += "<div class='hotel-top'><span class='tag gold hdate'>"+esc(ht.d)+"</span><h3>"+esc(ht.name)+"</h3></div>";
-      h += "<div class='hotel-addr'>"+esc(ht.addr)+"</div>";
-      h += "<div class='hotel-map'><a class='locbtn' target='_blank' rel='noopener' href='"+dirUrl([hq], "walking")+"'>地图导航</a></div>";
-      h += "<div style='font-size:13px'>☎ "+esc(ht.tel)+"</div>";
-      h += "<div style='font-size:12.5px;color:var(--ink-soft)'>"+esc(ht.note)+"</div></div>";
+      hot += "<div class='book-card'>";
+      hot += "<div class='hotel-top'><span class='tag gold hdate'>"+esc(ht.d)+"</span><h3>"+esc(ht.name)+"</h3></div>";
+      hot += "<div class='hotel-addr'>"+esc(ht.addr)+"</div>";
+      hot += "<div class='hotel-map'><a class='locbtn' target='_blank' rel='noopener' href='"+dirUrl([hq], "walking")+"'>地图导航</a></div>";
+      hot += "<div style='font-size:13px'>☎ "+esc(ht.tel)+"</div>";
+      hot += "<div style='font-size:12.5px;color:var(--ink-soft)'>"+esc(ht.note)+"</div></div>";
     });
-    h += "</div>";
-    box.innerHTML = h;
+    hot += "</div>";
+    box.innerHTML = cat("✈️ 机票 · "+D.flights.length+" 班", fl)
+      + cat("🚗 租车", car)
+      + cat("🚢 游轮", cruise)
+      + cat("🎣 海钓", fish)
+      + cat("🏨 酒店 / 民宿 · "+D.hotels.length+" 家", hot);
   }
 
   /* ---------- render days ---------- */

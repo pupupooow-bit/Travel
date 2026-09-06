@@ -94,6 +94,8 @@ small{color:var(--ink-soft)}
 .tag.red{color:var(--bad);border-color:rgba(239,68,68,.35);background:rgba(239,68,68,.1)}
 /* overview map */
 .map-legend{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:10px}
+.map-legend a{display:inline-flex;align-items:center;gap:5px;color:inherit;text-decoration:none;border-radius:999px;padding:3px 10px;background:var(--chip);border:1px solid transparent;transition:border-color .15s}
+.map-legend a:hover{border-color:var(--accent2)}
 .map-legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:1px}
 .sealine{fill:none;stroke:var(--line);stroke-width:1.2;opacity:.65}
 /* tables */
@@ -660,7 +662,9 @@ window.TRIP_DATA = {
   ]
 };
 </script>
-
+<script>
+window.PLACE_LL = {"Shanghai Pudong International Airport Terminal 2, China":[31.14274,121.80411],"Suvarnabhumi Airport, Bangkok, Thailand":[13.69,100.7501],"Christiansborg Palace, Copenhagen, Denmark":[55.67565,12.58004],"Nyhavn, Copenhagen, Denmark":[55.67974,12.59089],"Frederik's Church, Copenhagen, Denmark":[55.68497,12.58955],"Hart Bageri Gammel Mønt 4, Copenhagen, Denmark":[55.68122,12.58162],"Gefion Fountain, Copenhagen, Denmark":[55.68928,12.59759],"The Little Mermaid, Copenhagen, Denmark":[55.69287,12.59929],"Kastellet, Copenhagen, Denmark":[55.69138,12.59374],"Strøget, Copenhagen, Denmark":[55.67792,12.57304],"Clarion Hotel Oslo Airport, Hans Gaarders veg 15, 2060 Gardermoen, Norway":[60.19266,11.06967],"Andersgrotta, Kirkenes, Norway":[69.72693,30.0496],"Grenselandmuseet, Førstevannslia 9900 Kirkenes, Norway":[69.7254,30.0503],"Soviet Liberation Monument, Kirkenes, Norway":[69.7255,30.047],"Kirkenes kirke, Kirkenes, Norway":[69.72831,30.0441],"Aurora Restobar, Dr. Wessels gate 7, 9900 Kirkenes, Norway":[69.7278,30.04119],"Kirkenes, Norway":[69.72715,30.0449],"Prestefjellet, Kirkenes, Norway":[69.72037,30.06074],"Scandic Kirkenes, Norway":[69.7264,30.04427],"Kirkenes terminal, Kaiveien 4, 9900 Kirkenes, Norway":[69.72866,30.07303],"Honningsvåg, Norway":[70.98026,25.97784],"North Cape, Nordkapp, Norway":[71.16995,25.78589],"Hammerfest, Norway":[70.64134,23.83608],"Skaret by Vander, Storgata 25, 9008 Tromsø, Norway":[69.64617,18.95187],"Front Pier, Killengreens gate 7-11, 9008 Tromsø, Norway":[69.64978,18.95977],"Fjellheisen, Sollivegen 12, Tromsdalen, Norway":[69.63852,18.99084],"Arctic Cathedral, Hans Nilsens vei 41, 9020 Tromsdalen, Norway":[69.64803,18.98742],"Prestvannet, Tromsø, Norway":[69.65921,18.93491],"Harstad Narvik Airport Evenes, Evenes, Norway":[68.48915,16.69119],"Svolvær, Norway":[68.23217,14.5646],"KIWI Osan Svolvær, Måseveien 1, 8300 Svolvær, Norway":[68.23268,14.53016],"Kongshalsveien 11, Vågan, Norway":[68.23351,14.51847],"Henningsvær, Norway":[68.15289,14.20072],"Hauklandstranda, Vestvågøy, Norway":[68.19799,13.52919],"Uttakleiv Beach, Lofoten, Norway":[68.2103,13.5065],"Hamnøy, Moskenes, Norway":[67.94639,13.13762],"Å, Moskenes, Norway":[67.87962,12.98404],"Reine Ytre Havn, Reine, Norway":[67.93511,13.09847],"Austnesfjorden, Nordland, Norway":[68.30384,14.72478],"Grønelva, Lødingen, Norway":[68.44392,16.00092],"Lødingen Brygge, Sjøveien 12, 8410 Lødingen, Norway":[68.41427,15.99484],"Lødingen, Nordland, Norway":[68.4139,15.9946],"Harstad Narvik Airport, Evenes, Norway":[68.48915,16.69119],"MUNCH, Bjørvika, Oslo, Norway":[59.90562,10.75516],"Oslo Opera House, Kirsten Flagstads plass 1, Oslo, Norway":[59.90752,10.75268],"Nasjonalmuseet, Brygata 7, Oslo, Norway":[59.91163,10.72842],"Oslo City shopping center, Oslo, Norway":[59.91268,10.75239],"Fuglen, Universitetsgata 2, 0164 Oslo, Norway":[59.9175,10.74006]};
+</script>
 <script>
 (function(){
   "use strict";
@@ -847,10 +851,11 @@ window.TRIP_DATA = {
     });
     const leg = document.getElementById("mapLegend");
     if(leg){
-      days.forEach(d=>{
-        const s=document.createElement("span");
-        s.innerHTML = "<i style='background:"+d.color+"'></i>"+d.short+" "+d.wd+" "+esc(d.title);
-        leg.appendChild(s);
+      days.forEach((d, idx)=>{
+        const a=document.createElement("a");
+        a.href="#day-"+idx;
+        a.innerHTML = "<i style='background:"+d.color+"'></i>"+d.short+" "+d.wd+" "+esc(d.title);
+        leg.appendChild(a);
       });
     }
   }
@@ -874,7 +879,8 @@ window.TRIP_DATA = {
     h += "<h3 style='margin:18px 0 8px'>🏨 酒店 / 民宿</h3><div class='grid c2'>";
     D.hotels.forEach(ht=>{
       h += "<div class='book-card'><h3><span>"+esc(ht.name)+"</span><span class='tag gold'>"+esc(ht.d)+"</span></h3>";
-      h += "<div class='muted' style='font-size:12.5px'>"+esc(ht.addr)+"</div><div style='font-size:13px'>☎ "+esc(ht.tel)+"</div>";
+      const hq = ht.name + ", " + ht.addr;
+      h += "<div class='muted' style='font-size:12.5px'>"+esc(ht.addr)+" <a class='locbtn' target='_blank' rel='noopener' href='"+dirUrl([hq], "walking")+"'>地图导航</a></div><div style='font-size:13px'>☎ "+esc(ht.tel)+"</div>";
       h += "<div style='font-size:12.5px;color:var(--ink-soft)'>"+esc(ht.note)+"</div></div>";
     });
     h += "</div>";
@@ -885,35 +891,50 @@ window.TRIP_DATA = {
   function routeSVG(stops, color){
     const n = stops.length;
     if(!n) return "";
-    const w = 560, h = 150;
-    if(n===1){
-      return "<svg class='route-svg' viewBox='0 0 "+w+" "+h+"'><circle cx='280' cy='75' r='14' fill='"+color+"'/><text x='280' y='80' text-anchor='middle' fill='#fff' font-size='13'>1</text></svg>";
+    const w = 560, h = 190, pad = 34;
+    const ll = stops.map(q => (window.PLACE_LL && window.PLACE_LL[q]) || null);
+    if(!ll.every(v=>v && v.length===2)){
+      let s = "<svg class='route-svg' viewBox='0 0 "+w+" "+h+"' role='img'>";
+      s += "<rect width='"+w+"' height='"+h+"' rx='12' style='fill:var(--card2)'/>";
+      s += "<text x='280' y='95' text-anchor='middle' fill='var(--ink-soft)' font-size='13'>地图坐标准备中</text></svg>";
+      return s;
     }
-    const pts = stops.map((s,i)=>{
-      const x = n===1 ? 280 : 38 + i*((w-76)/(n-1));
-      const y = (i%2 ? 112 : 38);
+    let minLat=90,maxLat=-90,minLon=180,maxLon=-180;
+    ll.forEach(v=>{ minLat=Math.min(minLat,v[0]); maxLat=Math.max(maxLat,v[0]); minLon=Math.min(minLon,v[1]); maxLon=Math.max(maxLon,v[1]); });
+    const midLat=(minLat+maxLat)/2, midLon=(minLon+maxLon)/2;
+    const cos = Math.max(0.15, Math.cos(midLat*Math.PI/180));
+    let xmin=1e9,xmax=-1e9,ymin=1e9,ymax=-1e9;
+    const pts = ll.map(v=>{
+      const x=(v[1]-midLon)*cos, y=midLat-v[0];
+      xmin=Math.min(xmin,x); xmax=Math.max(xmax,x); ymin=Math.min(ymin,y); ymax=Math.max(ymax,y);
       return {x,y};
     });
-    let d = "M"+pts[0].x+" "+pts[0].y;
-    for(let i=1;i<pts.length;i++){
-      const p0=pts[i-1], p1=pts[i];
-      const mx=(p0.x+p1.x)/2;
-      d += " C "+mx+" "+p0.y+", "+mx+" "+p1.y+", "+p1.x+" "+p1.y;
-    }
-    let s = "<svg class='route-svg' viewBox='0 0 "+w+" "+h+"'>";
-    s += "<path d='"+d+"' fill='none' stroke='"+color+"' stroke-width='2.6' stroke-linecap='round' opacity='.75'/>";
+    if(xmax-xmin < 1e-5) { xmin-=0.01; xmax+=0.01; }
+    if(ymax-ymin < 1e-5) { ymin-=0.01; ymax+=0.01; }
+    const scale = Math.min((w-2*pad)/(xmax-xmin), (h-2*pad)/(ymax-ymin));
+    const px = p => w/2 + p.x*scale;
+    const py = p => h/2 + p.y*scale;
+    let d = pts.map((p,i)=>(i?" L ":"M ")+px(p).toFixed(1)+" "+py(p).toFixed(1)).join("");
+    let s = "<svg class='route-svg' viewBox='0 0 "+w+" "+h+"' role='img'>";
+    s += "<rect width='"+w+"' height='"+h+"' rx='12' style='fill:var(--card2);stroke:var(--line)'/>";
+    for(let gx=60; gx<w; gx+=70) s += "<line x1='"+gx+"' y1='0' x2='"+gx+"' y2='"+h+"' style='stroke:var(--line)' opacity='.35'/>";
+    for(let gy=30; gy<h; gy+=40) s += "<line x1='0' y1='"+gy+"' x2='"+w+"' y2='"+gy+"' style='stroke:var(--line)' opacity='.35'/>";
+    s += "<path d='"+d+"' fill='none' stroke='"+color+"' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round' opacity='.9'/>";
     pts.forEach((p,i)=>{
-      s += "<circle cx='"+p.x+"' cy='"+p.y+"' r='13' fill='"+color+"' stroke='var(--card)' stroke-width='2'/>";
-      s += "<text x='"+p.x+"' y='"+p.y+"' text-anchor='middle' dy='4.5' fill='#fff' font-size='12' font-weight='600'>"+(i+1)+"</text>";
+      const cx=px(p).toFixed(1), cy=py(p).toFixed(1);
+      s += "<circle cx='"+cx+"' cy='"+cy+"' r='7' fill='"+(i===0?"#16a34a":(i===pts.length-1?"#dc2626":color))+"' stroke='#fff' stroke-width='1.8'/>";
+      if(i===0 || i===pts.length-1){
+        s += "<text x='"+cx+"' y='"+(cy>h-16?cy+16:cy-11)+"' text-anchor='middle' font-size='10.5' style='fill:var(--ink-soft)' font-weight='600'>"+(i===0?"出发":"结束")+"</text>";
+      }
     });
+    s += "<text x='10' y='"+(h-8)+"' font-size='10' style='fill:var(--ink-soft)' opacity='.7'>N ↑ · 离线示意地图，顺序与真实导航见按钮</text>";
     s += "</svg>";
     return s;
   }
   function stopChips(stops){
-    const cn = ["①","②","③","④","⑤","⑥","⑦","⑧","⑨","⑩","⑪","⑫"];
     return stops.map((q,i)=>{
       const name = q.split(",")[0];
-      return "<span class='tag'>"+cn[i]+" "+esc(name)+"</span>";
+      return "<span class='tag'>"+esc(name)+"</span>";
     }).join(" ");
   }
   function itemMeta(it){
@@ -921,6 +942,32 @@ window.TRIP_DATA = {
     if(userTz === it.z) return "";
     const lt = timeIn(it.startAbs, userTz);
     return lt ? "<small>你的时区 " + lt + "</small>" : "";
+  }
+  const CPH_LOCS = [
+    ["克里斯蒂安堡宫", "Christiansborg Palace, Copenhagen, Denmark"],
+    ["新港", "Nyhavn, Copenhagen, Denmark"],
+    ["腓特烈教堂", "Frederik's Church, Copenhagen, Denmark"],
+    ["Hart", "Hart Bageri Gammel Mønt 4, Copenhagen, Denmark"],
+    ["吉菲昂", "Gefion Fountain, Copenhagen, Denmark"],
+    ["美人鱼", "The Little Mermaid, Copenhagen, Denmark"],
+    ["卡斯特雷特", "Kastellet, Copenhagen, Denmark"],
+    ["Strøget", "Strøget, Copenhagen, Denmark"]
+  ];
+  function planScheduleHTML(it, day){
+    const routeHTML = Array.isArray(it.route) ? "<details class='route' style='margin:9px 0 0'><summary>本方案路线 · "+Math.min(10,it.route.length)+" 站（地图）</summary><div class='route-body'>"+routeSVG(it.route.slice(0,10), day.color)+"<div style='margin:8px 0' class='roomie'>"+stopChips(it.route.slice(0,10))+"</div><a class='route-nav' target='_blank' rel='noopener' href='"+dirUrl(it.route.slice(0,10), "walking")+"'>按此方案导航</a></div></details>" : "";
+    let h = "<li><div class='time'><small>"+(it.icon||"")+"</small></div><div class='evt'><div class='head'>"+(it.icon?it.icon+" ":"")+esc(it.h)+"</div>";
+    if(it.d) h += "<div class='desc'>"+esc(it.d)+"</div>";
+    if(it.badges) h += "<div class='badges'>"+it.badges.map(b=>"<span class='badge book'>"+esc(b)+"</span>").join("")+"</div>";
+    h += routeHTML + "</div></li>";
+    (it.schedule||[]).forEach(s=>{
+      const timeCell = "<div class='time'><b>"+esc(s.t)+"</b></div>";
+      let loc = "";
+      for(const pair of CPH_LOCS){ if(s.h.indexOf(pair[0])>-1){ loc = " <a class='locbtn' target='_blank' rel='noopener' href='"+dirUrl([pair[1]], "walking")+"'>"+esc(pair[1].split(",")[0])+"</a>"; break; } }
+      h += "<li>"+timeCell+"<div class='evt'><div class='head'>"+esc(s.h)+"</div>";
+      if(s.d) h += "<div class='desc'>"+esc(s.d)+"</div>";
+      h += loc+"</div></li>";
+    });
+    return h;
   }
   function renderDays(){
     const host = document.getElementById("daylist");
@@ -936,7 +983,7 @@ window.TRIP_DATA = {
       if(day.note) html += "<div class='note'>"+esc(day.note)+"</div>";
       html += "</div>";
       if(day.mode && !hasPlans && stops.length){
-        html += "<details class='route'><summary>当日路线 · "+stops.length+" 站（示意）"+ (day.mode?" · "+modeLabel:"") +"</summary>";
+        html += "<details class='route'><summary>当日路线 · "+stops.length+" 站（地图）"+ (day.mode?" · "+modeLabel:"") +"</summary>";
         html += "<div class='route-body'>"+routeSVG(stops, day.color);
         html += "<div style='margin:8px 0' class='roomie'>"+stopChips(stops)+"</div>";
         html += "<a class='route-nav' target='_blank' rel='noopener' href='"+dirUrl(stops, day.mode)+"'>一键按顺序导航（Google 地图）</a>";
@@ -944,6 +991,7 @@ window.TRIP_DATA = {
       }
       html += "<ul class='tl'>";
       day.items.forEach(it=>{
+        if(Array.isArray(it.schedule)){ html += planScheduleHTML(it, day); return; }
         const timeCell = it.t ? "<div class='time'><b>"+esc(it.t)+"</b>"+itemMeta(it)+"</div>" : "<div class='time'><small>"+esc(it.icon||"")+"</small></div>";
         let badges = "";
         if(it.badges) badges = "<div class='badges'>"+it.badges.map(b=>{
@@ -953,7 +1001,7 @@ window.TRIP_DATA = {
         let routeHTML = "";
         if(Array.isArray(it.route)){
           const stops2 = it.route.slice(0,10);
-          routeHTML = "<details class='route' style='margin:9px 0 0'><summary>本方案路线 · "+stops2.length+" 站</summary><div class='route-body'>"+routeSVG(stops2, day.color)+"<div style='margin:8px 0' class='roomie'>"+stopChips(stops2)+"</div><a class='route-nav' target='_blank' rel='noopener' href='"+dirUrl(stops2, day.mode||"walking")+"'>按此方案导航</a></div></details>";
+          routeHTML = "<details class='route' style='margin:9px 0 0'><summary>本方案路线 · "+stops2.length+" 站（地图）</summary><div class='route-body'>"+routeSVG(stops2, day.color)+"<div style='margin:8px 0' class='roomie'>"+stopChips(stops2)+"</div><a class='route-nav' target='_blank' rel='noopener' href='"+dirUrl(stops2, day.mode||"walking")+"'>按此方案导航</a></div></details>";
         }
         const locHTML = it.loc ? " <a class='locbtn' target='_blank' rel='noopener' href='"+dirUrl([it.loc.q], day.mode||"walking")+"'>"+esc(it.loc.name)+"</a>" : "";
         let schedHTML = "";
